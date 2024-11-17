@@ -10,6 +10,7 @@ function Footer() {
           <Link to="/terms">Trems of use</Link>
           <Link to="/policy">Privacy policy</Link>
           <Link to="/cookie">Cookie policy</Link>
+          <Link to="/sitemap">Sitemap</Link>
         </nav>
       </div>
     </footer>

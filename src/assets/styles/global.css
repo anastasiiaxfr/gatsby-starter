@@ -35,13 +35,16 @@
 }
 
 @layer components {
+  #loom-companion-mv3 {
+    display: none;
+  }
   html,
   body,
   #___gatsby,
   #gatsby-focus-wrapper {
     @apply flex flex-col min-h-screen bg-[#fbfbfb];
   }
-  .header,
+  .header-top,
   .footer {
     @apply bg-black text-white py-3;
   }
@@ -70,9 +73,17 @@
     @apply flex justify-between items-center gap-3;
   }
 
+  .header-btm {
+    @apply py-4 bg-white border-b border-gray-100 shadow-sm;
+  }
+
+  .header-btm .header-menu {
+    @apply gap-2;
+  }
+
   .header-menu,
   .footer-menu {
-    @apply flex items-center gap-5;
+    @apply flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mx-auto;
   }
 
   .header-menu a,
@@ -92,16 +103,16 @@
     @apply flex flex-col justify-between gap-2 p-6 bg-white border border-gray-200 shadow-slate-100 shadow-xl hover:shadow-none transition;
   }
 
-  .cards .card:nth-child(1) {
-    @apply lg:col-span-2 lg:col-start-1;
+  .card-lg {
+    @apply xl:col-span-2 xl:col-start-1;
   }
 
   .card-lg-l {
-    @apply lg:col-span-2 lg:col-start-1;
+    @apply xl:col-span-2 xl:col-start-1;
   }
 
   .card-lg-r {
-    @apply lg:col-span-2 lg:col-start-3;
+    @apply xl:col-span-2 xl:col-start-3;
   }
 
   .cards .card:nth-child(7) {
@@ -112,21 +123,37 @@
     @apply text-2xl font-bold mb-2;
   }
 
+  .card-desc {
+    @apply opacity-60;
+  }
+
   .card-footer {
     @apply flex flex-wrap gap-3 border-t-2 pt-4 mt-4 text-[12px];
   }
 
   .card-img {
-    @apply -m-6 mb-4 relative;
+    @apply -m-6 mb-4 relative transition;
+  }
+
+  .card-img > .card-info {
+    @apply absolute right-2 top-2;
   }
 
   .card-info {
-    @apply mb-4 flex justify-between gap-3 absolute right-2 top-2;
+    @apply mb-4 flex justify-between gap-3;
   }
 
   .card-auth,
   .card-date {
     @apply flex flex-wrap gap-2 text-[12px];
+  }
+
+  .card:hover .card-title {
+    @apply text-rose-600 transition underline;
+  }
+
+  .card:hover img {
+    @apply scale-105 transition duration-300;
   }
 
   .chip {
@@ -143,11 +170,23 @@
     border-width: 0;
   }
 
+  .banners > .card:hover .card-title {
+    @apply text-white;
+  }
+  
   .banners img {
     @apply block object-cover  w-[100%] h-[100%] max-h-[300px];
   }
 
+  .banner {
+    @apply border border-gray-200 shadow-slate-100 shadow-xl;
+  }
+
   .banners_1 {
     @apply grid-cols-1 lg:grid-cols-2;
+  }
+
+  .banners_1 .banner {
+    @apply hidden xl:flex;
   }
 }
