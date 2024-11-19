@@ -30,7 +30,7 @@ export default function Header() {
       </div>
       <div className="header-btm">
         <div className="container">
-          <nav class="header-menu">
+          <nav className="header-menu">
             {navByCat
               .map((i, ind) => (
                 <Link to={i.url} key={ind}>

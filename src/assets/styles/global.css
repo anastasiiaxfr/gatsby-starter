@@ -214,40 +214,40 @@
     }
   }
 
-  .page-single h1 {
+  .post h1 {
     @apply mb-2 font-medium text-3xl;
   }
-  .page-single h2, .page-single h3, .page-single h4, .page-single h5, .page-single h6 {
+  .post h2, .post h3, .post h4, .post h5, .post h6 {
     @apply mb-2 font-medium text-2xl;
     color: var(--color-heading);
   }
   
-  .page-single-lead {
+  .post-lead {
     @apply text-[20px] mt-3 mb-6 text-[#6c6b6b];
   }
-  .page-single-header {
+  .post-header {
     @apply flex flex-wrap gap-3 justify-between mb-8 mt-3;
   }
 
-  .page-single-header svg {
+  .post-header svg {
       width: 20px;
       height: 20px;
   }
 
-  .page-single-footer {
+  .post-footer {
     @apply mt-10 flex flex-wrap gap-4 justify-between items-center;
   }
 
-  .page-single-poster {
+  .post-poster {
     @apply w-full object-cover aspect-auto rounded-xl;
   }
 
-  .page-single-content p {
+  .post-content p {
     @apply text-[15px] my-2;
     color: var(--color-text);
   }
 
-  .page-single a:hover {
+  .post a:hover {
     color: var(--color-main);
   }
 

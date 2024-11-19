@@ -30,14 +30,14 @@ function SingleNews({ data }) {
     <Layout>
       <div className="container">
         <article className="page-single">
-          <section className="page-single-conteiner">
+          <section className="post">
             <GatsbyImage
               image={img}
               alt={title}
-              className="page-single-poster"
+              className="post-poster"
             />
 
-            <div className="page-single-header">
+            <div className="post-header">
               <div className="flex flex-wrap items-center gap-3">
                 <Link className="chip" to="/">
                   {category}
@@ -73,14 +73,14 @@ function SingleNews({ data }) {
             </div>
 
             <h1>{title}</h1>
-            <div className="page-single-lead">{exerpt}</div>
+            <div className="post-lead">{exerpt}</div>
 
             <div
-              className="page-single-content"
+              className="post-content"
               dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
             ></div>
 
-            <div className="page-single-footer">
+            <div className="post-footer">
               <div className="tags">
                 <b>Tags: </b> <Link href="/">Tag1</Link>/
                 <Link href="/">Tag1</Link>
