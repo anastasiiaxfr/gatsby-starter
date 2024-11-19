@@ -8,7 +8,7 @@ exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is:
 thumb: "../../assets/img/news/thumbs/n1.jpg"
 ---
 
-# Terms of usage
+## Heading 2
 
 Can’t you see you’re all the same? / Oh Summer, first race war, huh?.
 

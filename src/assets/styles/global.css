@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-main: #dc2626;
+  --color-text: #6c6b6b;
+  --color-heading: #000;
+}
+
 @layer base {
   *::selection {
     @apply bg-rose-100;
@@ -11,7 +17,7 @@
     @apply text-4xl font-bold mb-6;
   }
   h2 {
-    @apply text-2xl font-bold mb-5 mt-7;
+    @apply text-3xl font-bold mb-5 mt-7;
   }
   h3 {
   }
@@ -23,7 +29,7 @@
   }
 
   p {
-    @apply my-3;
+    @apply text-[18px] my-3;
   }
 
   ul {
@@ -42,7 +48,7 @@
   body,
   #___gatsby,
   #gatsby-focus-wrapper {
-    @apply flex flex-col min-h-screen bg-[#fbfbfb];
+    @apply flex flex-col min-h-screen bg-white;
   }
   .header-top,
   .footer {
@@ -151,13 +157,19 @@
   .card:hover .card-title {
     @apply text-rose-600 transition underline;
   }
+  
+  .post-actions {
+    @apply flex gap-2;
+  }
+
+
 
   .card:hover img {
     @apply scale-105 transition duration-300;
   }
 
   .chip {
-    @apply inline-flex bg-red-100 text-red-600 text-[10px] tracking-widest font-bold uppercase px-4 py-2 ml-auto rounded-full;
+    @apply inline-flex bg-red-100 text-red-600 text-[10px] tracking-widest font-bold uppercase px-4 py-2 rounded-full;
   }
 
   .banners {
@@ -187,6 +199,95 @@
   }
 
   .banners_1 .banner {
-    @apply hidden xl:flex;
+    display: none;
+    @apply xl:flex;
   }
+
+  .page-single {
+    @apply grid gap-4 grid-cols-1;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  @media only screen and (max-width: 768px){
+    .page-single {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .page-single h1 {
+    @apply mb-2 font-medium text-3xl;
+  }
+  .page-single h2, .page-single h3, .page-single h4, .page-single h5, .page-single h6 {
+    @apply mb-2 font-medium text-2xl;
+    color: var(--color-heading);
+  }
+  
+  .page-single-lead {
+    @apply text-[20px] mt-3 mb-6 text-[#6c6b6b];
+  }
+  .page-single-header {
+    @apply flex flex-wrap gap-3 justify-between mb-8 mt-3;
+  }
+
+  .page-single-header svg {
+      width: 20px;
+      height: 20px;
+  }
+
+  .page-single-footer {
+    @apply mt-10 flex flex-wrap gap-4 justify-between items-center;
+  }
+
+  .page-single-poster {
+    @apply w-full object-cover aspect-auto rounded-xl;
+  }
+
+  .page-single-content p {
+    @apply text-[15px] my-2;
+    color: var(--color-text);
+  }
+
+  .page-single a:hover {
+    color: var(--color-main);
+  }
+
+  .page-content a {
+    word-break: break-all;
+    color: var(--color-main);
+    @apply underline transition;
+  }
+
+  .sidebar-block {
+    @apply p-6 bg-gray-100 rounded-lg;
+  }
+
+  .sidebar-block h2 {
+    @apply mt-0;
+  }
+
+  .date {
+    @apply flex gap-1 items-center text-[12px];
+  }
+
+  .soc {
+    @apply flex gap-2;
+  }
+
+  .soc a {
+    @apply flex items-center justify-center bg-gray-200 w-[40px] h-[40px] rounded-sm transition;
+  }
+
+  .soc a:hover {
+    background-color: var(--color-main);
+    color: #fff;
+  }
+
+  .tags {
+    @apply flex items-center gap-2;
+  }
+
+  .tags a {
+    color: var(--color-main);
+  }
+
 }

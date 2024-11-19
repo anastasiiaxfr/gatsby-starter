@@ -9,7 +9,7 @@ exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is:
 thumb: "../../assets/img/news/thumbs/n5.jpg"
 ---
 
-# Terms of usage
+## Heading 2
 
 Can’t you see you’re all the same? / Oh Summer, first race war, huh?.
 
@@ -18,3 +18,4 @@ Those guys are inside you building a piece of shit Ethan!! They're inside you bu
 Why are you fighting? Can’t you see you’re all the same? / Oh Summer, first race war, huh?.
 
 If it was, you could call me Ernest Hemingway.
+

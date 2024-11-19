@@ -8,9 +8,9 @@ exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is:
 thumb: "../../assets/img/news/thumbs/n2.jpg"
 ---
 
-# Terms of usage
+## Heading 2
 
-Why are you fighting? / Oh Summer, first race war, huh?.
+Can’t you see you’re all the same? / Oh Summer, first race war, huh?.
 
 Those guys are inside you building a piece of shit Ethan!! They're inside you building a monument to compromise!! Fuck them. Fuck those people. Fuck this whole thing Ethan.
 

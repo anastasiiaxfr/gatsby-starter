@@ -25,7 +25,7 @@ export default function Home({ data }) {
               data={i.frontmatter}
               key={ind}
               hasImg={ind === 0 || ind == 1 || ind === 2 ? false : true}
-              classN={`card ${ind === 0 ? "card-lg" : ""}`}
+              name={`card ${ind === 0 ? "card-lg" : ""}`}
               lgDesc={ind === 0 ? true : false}
             />
           ))}
@@ -43,7 +43,7 @@ export default function Home({ data }) {
             <Article
               data={i.frontmatter}
               key={ind}
-              classN={`card ${ind === 0 ? "card-lg-l" : ""} ${ind === 1 ? "card-lg-r" : ""}`}
+              name={`card ${ind === 0 ? "card-lg-l" : ""} ${ind === 1 ? "card-lg-r" : ""}`}
             />
           ))}
         </section>

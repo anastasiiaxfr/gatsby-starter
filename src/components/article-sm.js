@@ -2,17 +2,13 @@ import React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const truncateText = (text, length) => {
-  return text.length > length ? `${text.substring(0, length)}...` : text;
-};
 
-function Article({ data, name = "card", hasImg = true, lgDesc = false }) {
+function Card({ data }) {
   let img = getImage(data.thumb);
-  const truncatedExcerpt = truncateText(data.exerpt, lgDesc ? 300 : 150);
 
   return (
-    <article className={name}>
-      {hasImg ? (
+    <article className="post">
+     
         <div className="card-img">
           <Link className="card-content" to={`/news/${data.slug}`}>
             <GatsbyImage image={img} alt="A dinosaur" />
@@ -23,20 +19,14 @@ function Article({ data, name = "card", hasImg = true, lgDesc = false }) {
             </Link>
           </div>
         </div>
-      ) : (
-        <div className="card-info">
-          <Link to="/" className="chip">
-            {data.category}
-          </Link>
-        </div>
-      )}
+     
 
       <div className="card-date">
-        <time dateTime={data.date}> {new Date(data.date).toLocaleString()}</time>
+        <time datetime={data.date}> {new Date(data.date).toLocaleString()}</time>
       </div>
       <Link className="card-content" to={`/news/${data.slug}`}>
         <div className="card-title">{data.title}</div>
-        <div className="card-desc">{truncatedExcerpt}</div>
+        <div className="card-desc">{data.exerpt}</div>
       </Link>
       <div className="card-footer">
         <div className="card-auth">
@@ -55,4 +45,4 @@ function Article({ data, name = "card", hasImg = true, lgDesc = false }) {
   );
 }
 
-export default Article;
+export default Card;

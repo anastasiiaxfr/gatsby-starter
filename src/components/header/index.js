@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import Logo from "../logo";
 
 const navByCat = [
+  { url: "/", label: "Home" },
   { url: "/", label: "Business" },
   { url: "/", label: "Economic" },
   { url: "/", label: "Sport" },
@@ -19,7 +20,6 @@ export default function Header() {
         <div className="container">
           <Logo />
           <nav className="header-menu">
-            <Link to="/">Home</Link>
             <Link to="/contacs">Contacts</Link>
             <Link to="/authors">Authors</Link>
             <Link to="/">Terms</Link>
