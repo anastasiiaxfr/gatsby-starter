@@ -3,23 +3,15 @@ import Layout from "../components/Layout";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/Sidebar";
+import Share from "../components/Share";
 
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaTelegramPlane } from "react-icons/fa";
-import { IoShareSocial } from "react-icons/io5";
 
 
-const socPost = [
-  { icon: <FaFacebookF />, url: "/", label: "" },
-  { icon: <FaXTwitter />, url: "/", label: "" },
-  { icon: <FaTelegramPlane />, url: "/", label: "" },
-  { icon: <IoShareSocial />, url: "/", label: "" },
-];
+
 
 function SingleNews({ data }) {
   const { markdownRemark } = data;
@@ -86,16 +78,10 @@ function SingleNews({ data }) {
                 <Link href="/">Tag1</Link>
               </div>
 
-              <nav className="soc">
-                {socPost.map((i, ind) => (
-                  <Link to={i.url} key={ind}>
-                    {i.icon}
-                  </Link>
-                ))}
-              </nav>
+              <Share />
             </div>
           </section>
-            <Sidebar />
+          <Sidebar />
         </article>
       </div>
     </Layout>

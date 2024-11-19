@@ -1,7 +1,7 @@
 ---
 date: 2024-11-16T00:00:00+00:00
 title: Why are you fighting?
-slug: "blog-1"
+slug: "blog-12"
 category: "Bussiness"
 authors: ["Anastasiia Berest"]
 exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is: Don't think about it."

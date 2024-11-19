@@ -1,7 +1,7 @@
 ---
 date: 2024-11-15T00:00:00+00:00
 title: Can’t you see you’re all the same?
-slug: "blog-2"
+slug: "blog-3"
 category: "Tech"
 authors: ["XFR"]
 exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is: Don't think about it."

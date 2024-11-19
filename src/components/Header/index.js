@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import Logo from "../logo";
+import Logo from "../Logo";
 
 const navByCat = [
   { url: "/", label: "Home" },

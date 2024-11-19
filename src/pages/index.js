@@ -1,9 +1,9 @@
 import * as React from "react";
 import Layout from "../components/Layout";
-import { SEO } from "../components/seo";
+import { SEO } from "../components/Seo";
 import { Link, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
-import Article from "../components/article";
+import Article from "../components/Article";
 
 export default function Home({ data }) {
   const news = data.allMarkdownRemark.nodes;
