@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "gatsby";
 import Logo from "../Logo";
 
+import { IoSearchSharp } from "react-icons/io5";
+import { FiSun } from "react-icons/fi";
+import { IoMoonSharp } from "react-icons/io5";
+import { IoShareSocial } from "react-icons/io5";
+
+
 const navByCat = [
   { url: "/", label: "Home" },
   { url: "/", label: "Business" },
@@ -12,6 +18,7 @@ const navByCat = [
   { url: "/", label: "Life" },
   { url: "/", label: "Hobbies & Events" },
 ];
+
 
 export default function Header() {
   return (
@@ -26,6 +33,22 @@ export default function Header() {
             <Link to="/faq">FAQ</Link>
             <Link to="/">Categories</Link>
           </nav>
+
+          <div className="header-cta">
+            <button className="search-btn">
+              <IoSearchSharp />
+            </button> 
+            <button className="theme-switcher">
+              {/* <FiSun /> */}
+              <IoMoonSharp />
+            </button> 
+            <button className="share-btn">
+              {/* <FiSun /> */}
+              <IoShareSocial />
+            </button> 
+
+          </div>
+         
         </div>
       </div>
       <div className="header-btm">
