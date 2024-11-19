@@ -5,6 +5,7 @@ export default function Sidaebar({ data }) {
   //console.log("dataSidebar", data);
   return (
     <aside className="sidebar">
+      {/* BEGIN block */}
       <div className="sidebar-block">
         <h2>Latest Post</h2>
 
@@ -14,6 +15,13 @@ export default function Sidaebar({ data }) {
           ))}
         </div>
       </div>
+      {/* END block */}
+
+      {/* BEGIN block */}
+      <div className="sidebar-block text-center">
+        <h2>Stay In Touch</h2>
+      </div>
+      {/* END block */}
     </aside>
   );
 }

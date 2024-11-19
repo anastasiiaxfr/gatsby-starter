@@ -1,6 +1,6 @@
 ---
 date: 2024-11-16T00:00:00+00:00
-title: Why are you fighting?
+title: Make your store stand out from the others by...
 slug: "blog-13"
 category: "Bussiness"
 authors: ["Anastasiia Berest"]

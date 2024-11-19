@@ -1,7 +1,7 @@
 ---
 date: 2024-11-12T00:00:00+00:00
 
-title: Why are you fighting?
+title: Make your store stand out from the others by converting..
 slug: "blog-10"
 category: "Bussiness"
 authors: ["XFR"]

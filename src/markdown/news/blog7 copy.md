@@ -1,6 +1,6 @@
 ---
 date: 2024-11-16T00:00:00+00:00
-title: Why are you fighting?
+title: Customize your WooCommerce store with countless Web
 slug: "blog-12"
 category: "Bussiness"
 authors: ["Anastasiia Berest"]
