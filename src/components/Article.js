@@ -14,7 +14,7 @@ function Article({ data, name = "card", hasImg = true, lgDesc = false }) {
     <article className={name}>
       {hasImg ? (
         <div className="card-img">
-          <Link className="card-content" to={`/news/${data.slug}`}>
+          <Link className="" to={`/news/${data.slug}`}>
             <GatsbyImage image={img} alt="A dinosaur" />
           </Link>
           <div className="card-info">
@@ -31,24 +31,26 @@ function Article({ data, name = "card", hasImg = true, lgDesc = false }) {
         </div>
       )}
 
-      <div className="card-date">
-        <time dateTime={data.date}> {new Date(data.date).toLocaleString()}</time>
-      </div>
-      <Link className="card-content" to={`/news/${data.slug}`}>
-        <div className="card-title">{data.title}</div>
-        <div className="card-desc">{truncatedExcerpt}</div>
-      </Link>
-      <div className="card-footer">
-        <div className="card-auth">
-          By{" "}
-          {data.authors.map((author, ind) => (
-            <>
-              <Link to="/" key={ind} className="card-note">
-                {author}
-              </Link>
-              {ind < data.authors.length - 1 && " /"}
-            </>
-          ))}
+      <div className="card-container">
+        <Link className="card-content" to={`/news/${data.slug}`}>
+          <div className="card-date">
+            <time dateTime={data.date}> {new Date(data.date).toLocaleString()}</time>
+          </div>
+          <div className="card-title">{data.title}</div>
+          <div className="card-desc">{truncatedExcerpt}</div>
+        </Link>
+        <div className="card-footer">
+          <div className="card-auth">
+            By{" "}
+            {data.authors.map((author, ind) => (
+              <>
+                <Link to="/" key={ind} className="card-note">
+                  {author}
+                </Link>
+                {ind < data.authors.length - 1 && " /"}
+              </>
+            ))}
+          </div>
         </div>
       </div>
     </article>
