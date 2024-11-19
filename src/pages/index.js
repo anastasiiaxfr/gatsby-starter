@@ -1,5 +1,5 @@
 import * as React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import { SEO } from "../components/seo";
 import { Link, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
