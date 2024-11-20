@@ -7,17 +7,17 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
 
 const socPost = [
-    { icon: <FaFacebookF />, url: "/", label: "" },
-    { icon: <FaXTwitter />, url: "/", label: "" },
-    { icon: <FaTelegramPlane />, url: "/", label: "" },
-    { icon: <IoShareSocial />, url: "/", label: "" },
+    { icon: <FaFacebookF />, url: "/", label: "Facenook" },
+    { icon: <FaXTwitter />, url: "/", label: "Twitter" },
+    { icon: <FaTelegramPlane />, url: "/", label: "Telegram" },
+    { icon: <IoShareSocial />, url: "/", label: "Share" },
 ];
 
 function Share() {
     return (
         <nav className="soc soc_main">
             {socPost.map((i, ind) => (
-                <Link to={i.url} key={ind}>
+                <Link to={i.url} key={ind} title={i.label}>
                     {i.icon}
                 </Link>
             ))}

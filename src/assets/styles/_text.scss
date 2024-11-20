@@ -31,11 +31,11 @@
 
 @layer components {
     blockquote {
-        @apply bg-gray-100 p-8 my-8 rounded-lg text-center font-semibold;
+        @apply bg-gray-100 p-8 my-8 rounded-lg text-center font-semibold dark:bg-dark_2;
     }
 
     blockquote p {
-        @apply text-black text-xl opacity-100 !important;
+        @apply text-black text-xl opacity-100 dark:text-white !important;
     }
 
     blockquote::before {

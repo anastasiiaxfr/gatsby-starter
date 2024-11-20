@@ -12,7 +12,7 @@
     body,
     #___gatsby,
     #gatsby-focus-wrapper {
-        @apply flex flex-col min-h-screen bg-white;
+        @apply flex flex-col min-h-screen bg-white dark:bg-dark_1 dark:text-white;
     }
 
 

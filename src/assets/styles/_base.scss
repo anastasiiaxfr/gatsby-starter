@@ -10,11 +10,26 @@
     --color-text: #6c6b6b;
     --color-heading: #000;
     font-family: "Montserrat", "sans-serif";
+
+    --bg-tertiary: #111421;
+    --bg-secondary: #0d0f18;
+    --border-card: #282a2c;
+    --bg-primary: #0d0e0f;
+    --third-menu-bg: #24272c;
+    --third-menu-hover-bg: #30343a;
+
 }
 
 $white: #fff;
 $black: #000;
 $main: var(--color-main);
+
+$dark_1: #111621;
+$dark_2: #1f2439;
+$dark_3: #181c2e;
+$dark_4: #0d0e0f;
+
+
 
 $color_1: #4867aa;
 $color_2: #1ea1f1;

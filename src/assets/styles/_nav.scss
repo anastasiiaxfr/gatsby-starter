@@ -15,7 +15,7 @@
         }
 
         &-btm {
-            @apply py-4 bg-white border-b border-gray-100 shadow-sm;
+            @apply py-4 bg-white border-y border-gray-100 shadow-sm dark:bg-[#111621] dark:text-white dark:border-y-gray-800;
 
             .header-menu {
                 @apply gap-2;
@@ -34,7 +34,7 @@
         @apply flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mx-auto;
 
         a {
-            @apply font-medium hover:text-red-600 transition duration-300;
+            @apply font-medium hover:text-main transition duration-300;
         }
     }
 
@@ -55,7 +55,7 @@
 
         .footer-mdl {
             .container {
-                @apply flex justify-center py-4 gap-4 opacity-50 border-t border-gray-500;
+                @apply flex flex-wrap justify-center py-4 gap-4 opacity-50 border-t border-gray-500;
             }
         }
 

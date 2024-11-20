@@ -9,7 +9,7 @@
     }
 
     .card {
-        @apply flex flex-col justify-between bg-white border border-gray-200 shadow-slate-100 shadow-xl hover:shadow-none transition;
+        @apply flex flex-col justify-between bg-white border border-gray-200 dark:bg-dark_2 dark:shadow-slate-950 dark:shadow-none dark:border-none shadow-slate-100 shadow-xl hover:shadow-none transition rounded-xl overflow-hidden;
 
         &:hover {
             img {
@@ -30,11 +30,11 @@
         }
 
         &-title {
-            @apply text-xl font-bold mb-2 mt-1;
+            @apply text-xl font-bold mb-2 mt-3;
         }
 
         &-desc {
-            @apply opacity-60;
+            @apply opacity-60 dark:opacity-100 dark:text-[#87909f];
         }
 
         &-container {
@@ -42,7 +42,7 @@
         }
 
         &-footer {
-            @apply flex flex-wrap gap-3 border-t-2 pt-4 mt-4 text-[12px];
+            @apply flex flex-wrap gap-3 border-t-0 pt-4 mt-4 text-[12px] dark:border-t-slate-800;
         }
 
         &-img {

@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
 import Logo from "../Logo";
+import ThemeSwitch from '../Theme-switch';
 
 import { IoSearchSharp } from "react-icons/io5";
-import { FiSun } from "react-icons/fi";
-import { IoMoonSharp } from "react-icons/io5";
 import { IoShareSocial } from "react-icons/io5";
 
 
@@ -35,13 +34,10 @@ export default function Header() {
           </nav>
 
           <div className="header-cta">
-            <button className="search-btn">
+            <button className="search-btn" title="Search">
               <IoSearchSharp />
             </button> 
-            <button className="theme-switcher">
-              {/* <FiSun /> */}
-              <IoMoonSharp />
-            </button> 
+            <ThemeSwitch />
           </div>
          
         </div>

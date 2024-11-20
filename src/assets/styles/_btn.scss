@@ -20,11 +20,10 @@
         @apply flex gap-2;
 
         a {
-            @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition cursor-pointer select-none;
+            @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition cursor-pointer select-none dark:bg-dark_2 dark:text-white;
 
             &:hover {
-                background-color: var(--color-main);
-                @apply text-white;
+                @apply text-white bg-rose-100 dark:bg-main dark:text-white;
             }
         }
 
@@ -40,8 +39,13 @@
 
 
     .chip {
-        @apply inline-flex bg-red-100 text-[10px] tracking-widest font-bold uppercase px-4 py-2 rounded-full;
-        color: var(--color-main);
+        @apply inline-flex text-[10px] tracking-widest font-bold uppercase px-4 py-2 rounded-full select-none text-white;
+        background-color: var(--color-main);
+
+        .banners & {
+            color: var(--color-main);
+            @apply dark:bg-dark_2 dark:text-white bg-white;
+        }
     }
 
 
@@ -75,7 +79,7 @@
         @apply grid grid-cols-3 gap-3;
 
         .network {
-            @apply bg-[#ebebeb] rounded-lg p-[8px] sm:p-4 flex flex-col items-center gap-1 transition;
+            @apply bg-[#ebebeb] rounded-lg p-[8px] sm:p-4 flex flex-col items-center gap-1 transition dark:bg-dark_3 dark:hover:bg-dark_4;
 
             &:hover {
                 @apply bg-gray-200;

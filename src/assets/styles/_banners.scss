@@ -6,22 +6,31 @@
         border-width: 0;
         background-color: var(--color-main);
         box-decoration-break: var(--color-main);
+
+        .card-desc {
+            @apply opacity-60 dark:opacity-80 dark:text-white;
+        }
     }
 
     .banners {
         @apply grid gap-6 my-6 items-stretch;
 
         img {
-            @apply block object-cover w-[100%] h-[100%] max-h-[300px];
+            @apply block object-cover w-[100%] h-[100%];
         }
 
         &>.card:hover .card-title {
             @apply text-white;
         }
+
     }
 
     .banner {
-        @apply border border-gray-200 shadow-slate-100 shadow-xl;
+        @apply border border-gray-200 shadow-slate-100 shadow-xl dark:shadow-none dark:border-none rounded-xl overflow-hidden;
+
+        & * {
+            @apply w-full h-full object-cover object-left;
+        }
     }
 
     .banners_1 {
