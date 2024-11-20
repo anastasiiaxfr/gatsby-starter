@@ -1,0 +1,66 @@
+@layer components {
+    .tags {
+        @apply flex items-center gap-2;
+
+        a {
+            color: var(--color-main);
+        }
+    }
+
+
+    .soc {
+        @apply flex gap-2;
+
+        a {
+            @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition;
+
+            &:hover {
+                background-color: var(--color-main);
+                @apply text-white;
+            }
+        }
+
+        &_main a {
+            background-color: var(--color-main);
+            @apply text-white;
+
+            &:hover {
+                @apply text-white bg-gray-800;
+            }
+        }
+    }
+
+
+    .chip {
+        @apply inline-flex bg-red-100 text-[10px] tracking-widest font-bold uppercase px-4 py-2 rounded-full;
+        color: var(--color-main);
+    }
+
+
+    .date {
+        @apply flex gap-1 items-center text-[12px];
+    }
+
+
+    .theme-switcher,
+    .search-btn,
+    .share-btn {
+        @apply w-[40px] h-[40px] inline-flex items-center justify-center text-white rounded-sm;
+        background-color: var(--color-main);
+    }
+
+
+    .contacts {
+        @apply flex gap-x-6 gap-y-1 items-center justify-center flex-wrap;
+
+        a {
+            @apply flex items-center gap-2;
+        }
+
+        svg {
+            color: var(--color-main);
+        }
+    }
+
+
+}

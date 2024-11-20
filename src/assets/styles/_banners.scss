@@ -1,0 +1,37 @@
+@layer components {
+
+    .banners>.card,
+    .card-active {
+        @apply border text-white;
+        border-width: 0;
+        background-color: var(--color-main);
+        box-decoration-break: var(--color-main);
+    }
+
+    .banners {
+        @apply grid gap-6 my-6 items-stretch;
+
+        img {
+            @apply block object-cover w-[100%] h-[100%] max-h-[300px];
+        }
+
+        &>.card:hover .card-title {
+            @apply text-white;
+        }
+    }
+
+    .banner {
+        @apply border border-gray-200 shadow-slate-100 shadow-xl;
+    }
+
+    .banners_1 {
+        @apply grid-cols-1 xl:grid-cols-2;
+
+        .banner {
+            display: none;
+            @apply xl:flex;
+        }
+    }
+
+
+}

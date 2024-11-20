@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-import "../assets/styles/global.css";
+import "../assets/styles/styles.sass";
 
 function Layout({ children }) {
   return (

@@ -20,6 +20,7 @@ module.exports = {
     "gatsby-plugin-postcss",
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
     // {
     //   resolve: `gatsby-source-contentful`,

@@ -1,0 +1,73 @@
+@layer components {
+
+    .header-top,
+    .footer {
+        @apply bg-black text-white py-3;
+    }
+
+    .header {
+        .container {
+            @apply flex justify-between items-center gap-3;
+        }
+
+        &-cta {
+            @apply flex gap-2;
+        }
+
+        &-btm {
+            @apply py-4 bg-white border-b border-gray-100 shadow-sm;
+
+            .header-menu {
+                @apply gap-2;
+            }
+        }
+
+        &-top {
+            .header-menu {
+                @apply hidden md:flex;
+            }
+        }
+    }
+
+    .header-menu,
+    .footer-menu {
+        @apply flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mx-auto;
+
+        a {
+            @apply font-medium hover:text-red-600 transition duration-300;
+        }
+    }
+
+
+
+    .footer {
+        &-menu {
+            @apply uppercase;
+        }
+
+        .footer-top {
+            @apply py-4;
+
+            .container {
+                @apply flex justify-center lg:justify-between items-center flex-wrap gap-4 gap-y-3;
+            }
+        }
+
+        .footer-mdl {
+            .container {
+                @apply flex justify-center py-4 gap-4 opacity-50 border-t border-gray-500;
+            }
+        }
+
+        .footer-btm {
+            .container {
+                @apply flex justify-center opacity-50;
+            }
+        }
+    }
+
+
+
+
+
+}

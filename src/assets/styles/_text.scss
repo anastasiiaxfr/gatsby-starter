@@ -1,0 +1,50 @@
+@layer base {
+
+    h1,
+    .h1 {
+        @apply text-4xl font-semibold mb-6;
+    }
+
+    h2 {
+        @apply text-3xl font-semibold mb-5 mt-7;
+
+        &+p {
+            @apply mt-0;
+        }
+    }
+
+
+    p {
+        @apply text-[18px] my-3;
+    }
+
+    ul {
+        @apply pl-3;
+
+        li {
+            @apply list-disc my-2;
+        }
+    }
+
+}
+
+
+@layer components {
+    blockquote {
+        @apply bg-gray-100 p-8 my-8 rounded-lg text-center font-semibold;
+    }
+
+    blockquote p {
+        @apply text-black text-xl opacity-100 !important;
+    }
+
+    blockquote::before {
+        display: block;
+        content: '“';
+        font-size: 100px;
+        line-height: 1;
+        font-weight: 800;
+        color: var(--color-main);
+        margin-bottom: -50px;
+    }
+}

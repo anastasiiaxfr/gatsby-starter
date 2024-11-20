@@ -1,5 +1,4 @@
 import React from "react";
-import * as s from "./footer.module.css";
 import { Link } from "gatsby";
 import Socials from "../Socials";
 import Logo from "../Logo";
