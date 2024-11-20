@@ -1,12 +1,30 @@
 @layer components {
     .page {
+        h2, h3, h4, h5, h6 {
+            @apply uppercase text-2xl font-semibold;
+        }
+
         &-wrapper {
             @apply flex-1;
         }
 
         &-main {
             @apply my-10;
+
+            b, strong {
+                @apply font-semibold;
+            }
+
+            p {
+                @apply opacity-70;
+            }
         }
+
+       
+
+           
+
+      
         &-error {
             @apply bg-black text-white flex flex-col items-center justify-center gap-4 text-center flex-1;
             &__title {
