@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Article-sm";
+import Networks from "./Networks";
 
 export default function Sidaebar({ data }) {
   //console.log("dataSidebar", data);
@@ -20,6 +21,7 @@ export default function Sidaebar({ data }) {
       {/* BEGIN block */}
       <div className="sidebar-block text-center">
         <h2>Stay In Touch</h2>
+        <Networks />
       </div>
       {/* END block */}
     </aside>

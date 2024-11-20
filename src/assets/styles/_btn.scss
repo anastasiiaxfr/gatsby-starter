@@ -63,4 +63,45 @@
     }
 
 
+    .networks {
+        @apply grid grid-cols-3 gap-3;
+
+        .network {
+            @apply bg-[#ebebeb] rounded-lg p-4 flex flex-col items-center gap-1 transition;
+
+            &:hover {
+                @apply bg-gray-200;
+            }
+
+            svg {
+                @apply  text-white;
+            }
+
+            &-icon {
+                @apply  w-[40px] h-[40px] rounded-full flex items-center justify-center;
+            }
+
+            .soc {
+                &-1 {
+                    background-color: $color_1;
+                }
+                &-2 {
+                    background-color: $color_2;
+                }
+                &-3 {
+                    background-color: $color_3;
+                }
+                &-4 {
+                    background-color: $color_4;
+                }
+                &-5 {
+                    background-color: $black;
+                }
+                &-6 {
+                    @apply bg-green-600;
+                }
+            }
+        }
+    }
+
 }

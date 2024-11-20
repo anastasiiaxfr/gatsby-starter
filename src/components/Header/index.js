@@ -42,11 +42,6 @@ export default function Header() {
               {/* <FiSun /> */}
               <IoMoonSharp />
             </button> 
-            <button className="share-btn">
-              {/* <FiSun /> */}
-              <IoShareSocial />
-            </button> 
-
           </div>
          
         </div>
