@@ -1,4 +1,12 @@
 @layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 text-white uppercase no-underline rounded-lg transition px-8 py-4 font-semibold;
+        background-color: var(--color-main);
+        &:hover, &:active, &:focus  {
+            background-color: var(--color-primary);
+        }
+    }
+
     .tags {
         @apply flex items-center gap-2;
 
@@ -12,7 +20,7 @@
         @apply flex gap-2;
 
         a {
-            @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition;
+            @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition cursor-pointer select-none;
 
             &:hover {
                 background-color: var(--color-main);
@@ -22,7 +30,7 @@
 
         &_main a {
             background-color: var(--color-main);
-            @apply text-white;
+            @apply text-white cursor-pointer select-none;
 
             &:hover {
                 @apply text-white bg-gray-800;
@@ -67,7 +75,7 @@
         @apply grid grid-cols-3 gap-3;
 
         .network {
-            @apply bg-[#ebebeb] rounded-lg p-4 flex flex-col items-center gap-1 transition;
+            @apply bg-[#ebebeb] rounded-lg p-[8px] sm:p-4 flex flex-col items-center gap-1 transition;
 
             &:hover {
                 @apply bg-gray-200;

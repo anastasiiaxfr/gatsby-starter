@@ -7,6 +7,14 @@
         &-main {
             @apply my-10;
         }
+        &-error {
+            @apply bg-black text-white flex flex-col items-center justify-center gap-4 text-center flex-1;
+            &__title {
+                @apply font-extrabold text-[10em] -mb-4;
+                line-height: 0.8;
+                color: var(--color-main);
+            }
+        }
     }
 
 
