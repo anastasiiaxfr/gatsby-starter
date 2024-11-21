@@ -13,8 +13,8 @@ module.exports = {
     description: "Gatsby + Tailwind CSS starter",
     copyright: "This website is copyright 2024 Xforeal",
     twitterUsername: `@gatsbyjs`,
-    image: `/gatsby-icon.png`,
-    siteUrl: `https://www.yourdomain.tld`,
+    image: `/seo/seo.jpg`,
+    siteUrl: `https://xforeal-news-md.vercel.app`,
   },
   plugins: [
     "gatsby-plugin-postcss",

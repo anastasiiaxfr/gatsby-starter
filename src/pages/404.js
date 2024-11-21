@@ -22,4 +22,4 @@ function NotFound() {
 }
 
 export default NotFound;
-export const Head = () => <SEO title="404" />;
+export const Head = () => <SEO title="404 Page" />;

@@ -2,12 +2,12 @@ import React from "react";
 import Layout from "../components/Layout";
 import { Link, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { SEO } from "../components/Seo";
 import Sidebar from "../components/Sidebar";
 import Share from "../components/Share";
 import { FaRegCalendarAlt, FaRegBookmark, FaRegHeart } from "react-icons/fa";
 
 function SingleNews({ data }) {
-  //console.log("post", data);
   const { markdownRemark, latestNews } = data;
   const { title, authors, category, date, exerpt, thumb } = markdownRemark.frontmatter;
   const img = getImage(thumb);
@@ -80,6 +80,15 @@ function SingleNews({ data }) {
 
 export default SingleNews;
 
+// Use the correct query data in the Head section
+export const Head = ({ data }) => {
+  const { markdownRemark } = data;
+  const { title, thumb, exerpt, slug } = markdownRemark.frontmatter;
+
+  return <SEO title={title} image={thumb.childImageSharp.fluid.src} description={exerpt}  link={`/${slug}`}/>;
+};
+
+// GraphQL query to fetch the current post and latest posts
 export const query = graphql`
   query($slug: String) {
     latestNews: allMarkdownRemark(
@@ -114,6 +123,9 @@ export const query = graphql`
         thumb {
           childImageSharp {
             gatsbyImageData
+            fluid {
+              src
+            }
           }
         }
       }

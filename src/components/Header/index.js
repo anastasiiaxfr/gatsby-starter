@@ -73,7 +73,7 @@ export default function Header() {
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="menu-button-terms"
-                    tabindex="-1"
+                    tabIndex="-1"
                   >
                     <Link to="/policy" role="menuitem" onClick={() => setOpenDropdown(null)}>
                       Privacy Policy
@@ -106,7 +106,7 @@ export default function Header() {
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="menu-button-categories"
-                    tabindex="-1"
+                    tabIndex="-1"
                   >
                     {navByCat.slice(1).map((i, ind) => (
                       <Link to={i.url} key={ind} role="menuitem" onClick={() => setOpenDropdown(null)}>

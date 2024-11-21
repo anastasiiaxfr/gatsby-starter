@@ -17,12 +17,13 @@ function Drawer({ data, showDrawer, setShowDrawer }) {
       </div>
 
       <nav className="drawer-menu">
-        <Link to="/">Authors</Link>
+        
         {data.map((i, ind) => (
           <Link to={i.url} key={ind} onClick={() => setShowDrawer(false)}>
             {i.label}
           </Link>
         ))}
+        <Link to="/">Authors</Link>
       </nav>
     </section>
   );

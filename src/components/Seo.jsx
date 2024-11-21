@@ -1,11 +1,10 @@
 import React from "react";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
-export const SEO = ({ title, description, pathname, children }) => {
+export const SEO = ({ title, description, pathname, image, link, children }) => {
   const {
     title: defaultTitle,
     description: defaultDescription,
-    image,
     siteUrl,
     twitterUsername,
   } = useSiteMetadata();
@@ -13,28 +12,57 @@ export const SEO = ({ title, description, pathname, children }) => {
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image}`,
-    url: `${siteUrl}${pathname || ``}`,
+    image: image || '/seo/seo1.jpg', 
+    url: `${siteUrl}${pathname || ''}`,
+    link: link ? `${siteUrl}${link}` : '/',
     twitterUsername,
+    author: "Anastasiia Berest",
   };
 
   return (
     <>
-      <title>XFR.News | {seo.title}</title>
+      {/* Title and Meta Tags */}
+      <title>{`XFR.News | ${seo.title}`}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
+      <meta name="author" content={seo.author} />
+
+      {/* Twitter Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />
       <meta name="twitter:url" content={seo.url} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
       <meta name="twitter:creator" content={seo.twitterUsername} />
-      
-      <link
-        rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>👤</text></svg>"
-      />
 
+      {/* Open Graph Meta Tags */}
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
+      <meta property="og:image:height" content="600" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="XFR.News" />
+      <meta property="og:url" content={seo.url} />
+
+      {/* Favicon and Icons */}
+      <link rel="shortcut icon" href="/fav/favicon.png" type="image/x-icon" />
+      <link rel="icon" href="/fav/favicon.png" type="image/x-icon" />
+      <link rel="apple-touch-icon" sizes="144x144" href="/fav/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/fav/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png" />
+      <link rel="mask-icon" href="/fav/safari-pinned-tab.svg" color="#fff" />
+
+      {/* Manifest and Theme Color */}
+      <link rel="manifest" href="/fav/site.webmanifest" />
+      <link rel="mask-icon" href="/fav/safari-pinned-tab.svg" color="#dc2626" />
+      <meta name="msapplication-TileColor" content="#dc2626" />
+      <meta name="theme-color" content="#dc2626" />
+
+      {/* Canonical Link */}
+      <link rel="canonical" href={seo.link} />
+
+      {/* Children content passed to the SEO component */}
       {children}
     </>
   );
