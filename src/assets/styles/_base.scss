@@ -11,12 +11,12 @@
     --color-heading: #000;
     font-family: "Montserrat", "sans-serif";
 
-    --bg-tertiary: #111421;
-    --bg-secondary: #0d0f18;
-    --border-card: #282a2c;
-    --bg-primary: #0d0e0f;
-    --third-menu-bg: #24272c;
-    --third-menu-hover-bg: #30343a;
+    // --bg-tertiary: #111421;
+    // --bg-secondary: #0d0f18;
+    // --border-card: #282a2c;
+    // --bg-primary: #0d0e0f;
+    // --third-menu-bg: #24272c;
+    // --third-menu-hover-bg: #30343a;
 
 }
 
@@ -24,11 +24,11 @@ $white: #fff;
 $black: #000;
 $main: var(--color-main);
 
+
 $dark_1: #111621;
 $dark_2: #1f2439;
 $dark_3: #181c2e;
 $dark_4: #0d0e0f;
-
 
 
 $color_1: #4867aa;
@@ -36,12 +36,15 @@ $color_2: #1ea1f1;
 $color_3: #007bb6;
 $color_4: #fe0000;
 
+
 $grad: linear-gradient(293.61deg, #f19204 -1.57%, #ffd800 108.89%);
 $grad_1: linear-gradient(180deg, #713517 0%, #1a1b1b 100%);
+
 
 $bxsd: 0 4px 25px 0 rgba(#231b59, 0.1);
 $bxsd_2: 0 2px 0px 0 #b97208, 0 -2px 0px 0 #ffd800, 2px 0 0 0 #b97208,
     -2px 0 0 0 #ffd800;
+
 
 $ffHeading: "Montserrat";
 $ffText: "Montserrat";
@@ -49,6 +52,7 @@ $ffBack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue"
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
 
+    
 $xlg: 1400;
 $lg: 1200;
 $md: 991;

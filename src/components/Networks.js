@@ -40,7 +40,7 @@ function Networks() {
                 <div className={`network-icon ${i.name}`}>
                 {i.icon}
                 </div>
-                <div><small>{i.label}</small></div>
+                <div className="network-label"><small>{i.label}</small></div>
             </Link>
         ))}
     </nav>

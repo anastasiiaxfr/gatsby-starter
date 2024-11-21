@@ -2,10 +2,8 @@
 
     .banners>.card,
     .card-active {
-        @apply border text-white;
+        @apply border text-white bg-main;
         border-width: 0;
-        background-color: var(--color-main);
-        box-decoration-break: var(--color-main);
 
         .card-desc {
             @apply opacity-60 dark:opacity-80 dark:text-white;
@@ -37,8 +35,7 @@
         @apply grid-cols-1 xl:grid-cols-2;
 
         .banner {
-            display: none;
-            @apply xl:flex;
+            @apply hidden xl:flex;
         }
     }
 

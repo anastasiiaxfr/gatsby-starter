@@ -1,9 +1,9 @@
 @layer components {
     .btn {
-        @apply inline-flex items-center justify-center gap-2 text-white uppercase no-underline rounded-lg transition px-8 py-4 font-semibold;
-        background-color: var(--color-main);
+        @apply inline-flex items-center justify-center gap-2 text-white uppercase no-underline rounded-lg transition px-8 py-4 font-semibold bg-main;
+      ;
         &:hover, &:active, &:focus  {
-            background-color: var(--color-primary);
+            @apply bg-main;
         }
     }
 
@@ -11,7 +11,7 @@
         @apply flex items-center gap-2;
 
         a {
-            color: var(--color-main);
+            @apply text-main;
         }
     }
 
@@ -20,7 +20,7 @@
         @apply flex gap-2;
 
         a {
-            @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition cursor-pointer select-none dark:bg-dark_2 dark:text-white;
+            @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition cursor-pointer select-none dark:bg-dark_3 dark:text-white;
 
             &:hover {
                 @apply text-white bg-rose-100 dark:bg-main dark:text-white;
@@ -39,12 +39,10 @@
 
 
     .chip {
-        @apply inline-flex text-[10px] tracking-widest font-bold uppercase px-4 py-2 rounded-full select-none text-white;
-        background-color: var(--color-main);
+        @apply inline-flex text-[10px] tracking-widest font-bold uppercase px-4 py-2 rounded-full select-none text-white bg-main;
 
         .banners & {
-            color: var(--color-main);
-            @apply dark:bg-dark_2 dark:text-white bg-white;
+            @apply dark:bg-dark_2 dark:text-white bg-white text-main;
         }
     }
 
@@ -57,8 +55,7 @@
     .theme-switcher,
     .search-btn,
     .share-btn {
-        @apply w-[40px] h-[40px] inline-flex items-center justify-center text-white rounded-sm;
-        background-color: var(--color-main);
+        @apply w-[40px] h-[40px] inline-flex items-center justify-center text-white rounded-sm bg-main;
     }
 
 
@@ -70,7 +67,7 @@
         }
 
         svg {
-            color: var(--color-main);
+            @apply text-main;
         }
     }
 
@@ -79,10 +76,10 @@
         @apply grid grid-cols-3 gap-3;
 
         .network {
-            @apply bg-[#ebebeb] rounded-lg p-[8px] sm:p-4 flex flex-col items-center gap-1 transition dark:bg-dark_3 dark:hover:bg-dark_4;
+            @apply bg-gray-100 rounded-lg p-[8px] sm:p-4 flex flex-col items-center gap-1 transition dark:bg-dark_3 dark:hover:bg-dark_4;
 
             &:hover {
-                @apply bg-gray-200;
+                @apply bg-rose-50 text-main;
             }
 
             svg {
@@ -91,6 +88,10 @@
 
             &-icon {
                 @apply  w-[40px] h-[40px] rounded-full flex items-center justify-center;
+            }
+
+            &-label {
+                @apply hidden sm:block;
             }
 
             .soc {

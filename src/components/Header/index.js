@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import Logo from "../Logo";
 import ThemeSwitch from '../Theme-switch';
+import Drawer from './Drawer';
 
 import { IoSearchSharp } from "react-icons/io5";
-import { IoShareSocial } from "react-icons/io5";
-
+import { IoMdMenu } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const navByCat = [
   { url: "/", label: "Home" },
@@ -18,46 +20,136 @@ const navByCat = [
   { url: "/", label: "Hobbies & Events" },
 ];
 
-
 export default function Header() {
-  return (
-    <header className="header">
-      <div className="header-top">
-        <div className="container">
-          <Logo />
-          <nav className="header-menu">
-            <Link to="/contacs">Contacts</Link>
-            <Link to="/authors">Authors</Link>
-            <Link to="/">Terms</Link>
-            <Link to="/faq">FAQ</Link>
-            <Link to="/">Categories</Link>
-          </nav>
+  const [showDrawer, setShowDrawer] = useState(false);
+  
+  const [openDropdown, setOpenDropdown] = useState(null);
 
-          <div className="header-cta">
-            <button className="search-btn" title="Search">
-              <IoSearchSharp />
-            </button> 
-            <ThemeSwitch />
+  const dropdownRef = useRef(null); 
+  const headerRef = useRef(null);
+
+  const toggleDropdown = (dropdownName) => {
+    setOpenDropdown((prevState) => prevState === dropdownName ? null : dropdownName);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  return (
+    <>
+      <header className="header" ref={headerRef}>
+        <div className="header-top">
+          <div className="container">
+            <Logo />
+            <nav className="header-menu">
+              <Link to="/contacts">Contacts</Link>
+              <Link to="/authors">Authors</Link>
+
+              <div className="menu-dd" ref={dropdownRef}>
+                <button
+                  type="button"
+                  className="menu-dd-toggle"
+                  id="menu-button-terms"
+                  aria-expanded={openDropdown === "terms" ? "true" : "false"}
+                  aria-haspopup="true"
+                  onClick={() => toggleDropdown("terms")}
+                >
+                  Terms <MdKeyboardArrowDown />
+                </button>
+
+                {openDropdown === "terms" && (
+                  <nav
+                    className="menu-sub"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="menu-button-terms"
+                    tabindex="-1"
+                  >
+                    <Link to="/policy" role="menuitem" onClick={() => setOpenDropdown(null)}>
+                      Privacy Policy
+                    </Link>
+                    <Link to="/terms" role="menuitem" onClick={() => setOpenDropdown(null)}>
+                      Terms of Service
+                    </Link>
+                    <Link to="/cookie" role="menuitem" onClick={() => setOpenDropdown(null)}>
+                      Cookie Policy
+                    </Link>
+                  </nav>
+                )}
+              </div>
+
+              <div className="menu-dd" ref={dropdownRef}>
+                <button
+                  type="button"
+                  className="menu-dd-toggle"
+                  id="menu-button-categories"
+                  aria-expanded={openDropdown === "categories" ? "true" : "false"}
+                  aria-haspopup="true"
+                  onClick={() => toggleDropdown("categories")}
+                >
+                  Categories <MdKeyboardArrowDown />
+                </button>
+
+                {openDropdown === "categories" && (
+                  <nav
+                    className="menu-sub"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="menu-button-categories"
+                    tabindex="-1"
+                  >
+                    {navByCat.slice(1).map((i, ind) => (
+                      <Link to={i.url} key={ind} role="menuitem" onClick={() => setOpenDropdown(null)}>
+                        {i.label}
+                      </Link>
+                    ))}
+                  </nav>
+                )}
+              </div>
+
+              <Link to="/faq">FAQ</Link>
+            </nav>
+
+            <div className="header-cta">
+              <button className="search-btn" title="Search">
+                <IoSearchSharp />
+              </button>
+              <ThemeSwitch />
+              <button className="drawer-toggle" onClick={() => setShowDrawer(!showDrawer)}>
+                {showDrawer ? <IoMdClose /> : <IoMdMenu />}
+              </button>
+            </div>
           </div>
-         
         </div>
-      </div>
-      <div className="header-btm">
-        <div className="container">
-          <nav className="header-menu">
-            {navByCat
-              .map((i, ind) => (
-                <Link to={i.url} key={ind}>
-                  {i.label}
-                </Link>
-              ))
-              .reduce(
-                (acc, curr, ind, arr) => (ind === arr.length - 1 ? acc.concat(curr) : acc.concat(curr, " | ")),
-                []
-              )}
-          </nav>
+        <div className="header-btm">
+          <div className="container">
+            <nav className="header-menu">
+              {navByCat
+                .map((i, ind) => (
+                  <Link to={i.url} key={ind}>
+                    {i.label}
+                  </Link>
+                ))
+                .reduce(
+                  (acc, curr, ind, arr) => (ind === arr.length - 1 ? acc.concat(curr) : acc.concat(curr, " | ")),
+                  []
+                )}
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <Drawer data={navByCat} showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+    </>
   );
 }
