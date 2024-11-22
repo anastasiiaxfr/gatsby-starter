@@ -5,7 +5,7 @@
         }
 
         p, li {
-            @apply dark:text-[#87909f];
+            @apply dark:text-dark_5;
         }
 
         &-wrapper {
@@ -44,7 +44,7 @@
         @apply flex flex-col gap-8;
 
         &-block {
-            @apply p-6 bg-gray-50 rounded-lg w-full dark:bg-[#111621];
+            @apply my-0 p-6 bg-gray-50 rounded-lg w-full dark:bg-dark_2;
 
             h2 {
                 @apply mt-0 text-2xl;
@@ -121,7 +121,7 @@
 
             p,
             li {
-                @apply text-[15px] my-2 opacity-60 dark:opacity-100 dark:text-[#87909f];
+                @apply text-[15px] my-2 opacity-60 dark:opacity-100 dark:text-dark_5;
 
             }
 

@@ -8,7 +8,7 @@ import Share from "../components/Share";
 import { FaRegCalendarAlt, FaRegBookmark, FaRegHeart } from "react-icons/fa";
 
 function SingleNews({ data }) {
-  const { markdownRemark, latestNews } = data;
+  const { markdownRemark, latestNews, allAuthors } = data;
   const { title, authors, category, date, exerpt, thumb } = markdownRemark.frontmatter;
   const img = getImage(thumb);
 
@@ -71,7 +71,7 @@ function SingleNews({ data }) {
             </div>
           </section>
 
-          <Sidebar data={latestNews.nodes} />
+          <Sidebar data={latestNews.nodes} currentAuthors={authors} authors={allAuthors.nodes} />
         </article>
       </div>
     </Layout>
@@ -85,7 +85,7 @@ export const Head = ({ data }) => {
   const { markdownRemark } = data;
   const { title, thumb, exerpt, slug } = markdownRemark.frontmatter;
 
-  return <SEO title={title} image={thumb.childImageSharp.fluid.src} description={exerpt}  link={`/${slug}`}/>;
+  return <SEO title={title} image={thumb.childImageSharp.fluid.src} description={exerpt} link={`/${slug}`} />;
 };
 
 // GraphQL query to fetch the current post and latest posts
@@ -126,6 +126,27 @@ export const query = graphql`
             fluid {
               src
             }
+          }
+        }
+      }
+    }
+    allAuthors: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/markdown/authors//" } }
+    ) {
+      nodes {
+        frontmatter {
+          slug
+          title
+          job
+          exerpt
+           ava {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          contacts {
+            link
+            name
           }
         }
       }

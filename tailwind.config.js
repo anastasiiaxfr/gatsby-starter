@@ -12,7 +12,8 @@ module.exports = {
         dark_1: '#0d0e0f', 
         dark_2: '#111621',
         dark_3: '#181c2e',
-        dark_4: '#1f2439'
+        dark_4: '#1f2439',
+        dark_5: '#87909f'
       },
     },
   },

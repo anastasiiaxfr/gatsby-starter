@@ -1,9 +1,14 @@
 @layer components {
     .btn {
         @apply inline-flex items-center justify-center gap-2 text-white uppercase no-underline rounded-lg transition px-8 py-4 font-semibold bg-main;
-      ;
+      
         &:hover, &:active, &:focus  {
             @apply bg-main;
+        }
+
+        &_light {
+            @extend .btn;
+            @apply bg-gray-100 text-black rounded-xl capitalize hover:text-white dark:bg-dark_3 dark:text-white dark:hover:bg-main;
         }
     }
 
