@@ -11,9 +11,10 @@ function SingleNews({ data }) {
   const { markdownRemark, latestNews, allAuthors } = data;
   const { title, authors, category, date, exerpt, thumb } = markdownRemark.frontmatter;
   const img = getImage(thumb);
+  const { allCategories } = data;
 
   return (
-    <Layout>
+    <Layout categories={allCategories.distinct}>
       <div className="container">
         <article className="page-single">
           <section className="post">
@@ -85,7 +86,7 @@ export const Head = ({ data }) => {
   const { markdownRemark } = data;
   const { title, thumb, exerpt, slug } = markdownRemark.frontmatter;
 
-  return <SEO title={title} image={thumb.childImageSharp.fluid.src} description={exerpt} link={`/${slug}`} />;
+  return <SEO title={title} image={thumb.childImageSharp.fluid.src} description={exerpt} link={`/news/${slug}`} />;
 };
 
 // GraphQL query to fetch the current post and latest posts
@@ -93,6 +94,7 @@ export const query = graphql`
   query($slug: String) {
     latestNews: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/src/markdown/news//" }, frontmatter: { slug: { ne: $slug } } }
+      limit: 5
     ) {
       nodes {
         frontmatter {
@@ -130,16 +132,14 @@ export const query = graphql`
         }
       }
     }
-    allAuthors: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/authors//" } }
-    ) {
+    allAuthors: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/src/markdown/authors//" } }, limit: 5) {
       nodes {
         frontmatter {
           slug
           title
           job
           exerpt
-           ava {
+          ava {
             childImageSharp {
               gatsbyImageData
             }
@@ -150,6 +150,10 @@ export const query = graphql`
           }
         }
       }
+    }
+
+    allCategories: allMarkdownRemark {
+      distinct(field: { frontmatter: { category: SELECT } })
     }
   }
 `;

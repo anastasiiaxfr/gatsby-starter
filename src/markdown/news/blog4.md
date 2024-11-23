@@ -1,9 +1,9 @@
 ---
-date: 2024-11-14T00:00:00+00:00
+date: 2024-11-11T00:00:00+00:00
 
 title: Make your store stand out from the others by...
 slug: "blog-7"
-category: "Bussiness"
+category: "Business"
 authors: ["Anastasiia Berest", "XFR"]
 exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is: Don't think about it."
 thumb: "../../assets/img/news/thumbs/n7.jpg"

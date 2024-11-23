@@ -1,12 +1,11 @@
 ---
-date: 2024-11-12T00:00:00+00:00
-
-title: With WooLentor's drag-and-drop interface for...
-slug: "blog-8"
-category: "Business"
-authors: ["Anastasiia Berest", "XFR"]
-exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is: Don't think about it."
-thumb: "../../assets/img/news/thumbs/n8.jpg"
+date: 2024-11-02T00:00:00+00:00
+title: Customize your WooCommerce store with countless Web
+slug: "blog-1"
+category: "Tech"
+authors: ["Anastasiia Berest"]
+exerpt: "You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers."
+thumb: "../../assets/img/news/thumbs/n1.jpg"
 ---
 
 ## Make your store stand out from the others by...

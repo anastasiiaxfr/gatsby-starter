@@ -1,8 +1,8 @@
 ---
-date: 2024-11-15T00:00:00+00:00
+date: 2024-11-07T00:00:00+00:00
 title: WooCommerce comes with an intuitive drag-and-drop...
 slug: "blog-3"
-category: "Tech"
+category: "Education"
 authors: ["XFR"]
 exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is: Don't think about it."
 thumb: "../../assets/img/news/thumbs/n3.jpg"

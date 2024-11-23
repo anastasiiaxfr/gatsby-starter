@@ -1,12 +1,11 @@
 ---
-date: 2024-11-12T00:00:00+00:00
-
-title: With WooLentor's drag-and-drop interface for...
-slug: "blog-8"
-category: "Business"
-authors: ["Anastasiia Berest", "XFR"]
+date: 2024-11-04T00:00:00+00:00
+title: Make your store stand out from the others by converting..
+slug: "blog-2"
+category: "Sport"
+authors: ["XFR"]
 exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is: Don't think about it."
-thumb: "../../assets/img/news/thumbs/n8.jpg"
+thumb: "../../assets/img/news/thumbs/n2.jpg"
 ---
 
 ## Make your store stand out from the others by...

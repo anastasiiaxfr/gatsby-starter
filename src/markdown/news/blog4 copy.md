@@ -1,9 +1,9 @@
 ---
-date: 2024-11-14T00:00:00+00:00
+date: 2024-11-10T00:00:00+00:00
 
 title: Customize i WooCommerce theme-with-countless Video
 slug: "blog-6"
-category: "Bussiness"
+category: "Hobbies & Events"
 authors: ["Anastasiia Berest", "XFR"]
 exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is: Don't think about it."
 thumb: "../../assets/img/news/thumbs/n6.jpg"

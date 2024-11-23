@@ -7,8 +7,9 @@ import Article from "../components/Article";
 
 export default function Home({ data }) {
   const news = data.allMarkdownRemark.nodes;
+  const { allCategories } = data;
   return (
-    <Layout>
+    <Layout categories={allCategories.distinct}>
       <div className="container">
         <h1 className="">Breaking news</h1>
         <section className="banners banners_1">
@@ -39,7 +40,7 @@ export default function Home({ data }) {
         </section>
         <h2 className="h1">Analytics</h2>
         <section className="cards cards_1">
-          {news.slice(8).map((i, ind) => (
+          {news.slice(8, 14).map((i, ind) => (
             <Article
               data={i.frontmatter}
               key={ind}
@@ -53,10 +54,9 @@ export default function Home({ data }) {
 }
 
 export const Head = () => <SEO />;
-
 export const query = graphql`
-  query allNews {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/src/markdown/news//" } }) {
+  query allNewsAndCategories {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/src/markdown/news/" } }, limit: 15) {
       nodes {
         frontmatter {
           title
@@ -73,6 +73,9 @@ export const query = graphql`
         }
         id
       }
+    }
+    allCategories: allMarkdownRemark {
+      distinct(field: { frontmatter: { category: SELECT } })
     }
   }
 `;

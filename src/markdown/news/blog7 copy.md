@@ -2,7 +2,7 @@
 date: 2024-11-16T00:00:00+00:00
 title: Customize your WooCommerce store with countless Web
 slug: "blog-12"
-category: "Bussiness"
+category: "Tech"
 authors: ["Anastasiia Berest"]
 exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is: Don't think about it."
 thumb: "../../assets/img/news/thumbs/n1.jpg"

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "gatsby";
 import Logo from "../Logo";
-import ThemeSwitch from '../Theme-switch';
-import Drawer from './Drawer';
+import ThemeSwitch from "../Theme-switch";
+import Drawer from "./Drawer";
 
 import { IoSearchSharp } from "react-icons/io5";
 import { IoMdMenu } from "react-icons/io";
@@ -20,16 +20,16 @@ const navByCat = [
   { url: "/", label: "Hobbies & Events" },
 ];
 
-export default function Header() {
+export default function Header({ categories }) {
   const [showDrawer, setShowDrawer] = useState(false);
-  
+
   const [openDropdown, setOpenDropdown] = useState(null);
 
-  const dropdownRef = useRef(null); 
+  const dropdownRef = useRef(null);
   const headerRef = useRef(null);
 
   const toggleDropdown = (dropdownName) => {
-    setOpenDropdown((prevState) => prevState === dropdownName ? null : dropdownName);
+    setOpenDropdown((prevState) => (prevState === dropdownName ? null : dropdownName));
   };
 
   useEffect(() => {
@@ -87,7 +87,6 @@ export default function Header() {
                   </nav>
                 )}
               </div>
-
               <div className="menu-dd" ref={dropdownRef}>
                 <button
                   type="button"
@@ -108,9 +107,14 @@ export default function Header() {
                     aria-labelledby="menu-button-categories"
                     tabIndex="-1"
                   >
-                    {navByCat.slice(1).map((i, ind) => (
-                      <Link to={i.url} key={ind} role="menuitem" onClick={() => setOpenDropdown(null)}>
-                        {i.label}
+                    {categories?.map((i, ind) => (
+                      <Link
+                        to={`/category/${i.toLowerCase().replaceAll(" ", "-")}`}
+                        key={ind}
+                        role="menuitem"
+                        onClick={() => setOpenDropdown(null)}
+                      >
+                        {i}
                       </Link>
                     ))}
                   </nav>
@@ -134,22 +138,26 @@ export default function Header() {
         <div className="header-btm">
           <div className="container">
             <nav className="header-menu">
-              {navByCat
-                .map((i, ind) => (
-                  <Link to={i.url} key={ind}>
-                    {i.label}
+              <Link to="/">Home</Link>|
+              {categories?.map((i, ind) => (
+                <>
+                  <Link
+                    to={`/category/${i.toLowerCase().replaceAll(" ", "-")}`}
+                    key={ind}
+                    role="menuitem"
+                    onClick={() => setOpenDropdown(null)}
+                  >
+                    {i}
                   </Link>
-                ))
-                .reduce(
-                  (acc, curr, ind, arr) => (ind === arr.length - 1 ? acc.concat(curr) : acc.concat(curr, " | ")),
-                  []
-                )}
+                  {ind < categories.length - 1 && " | "}
+                </>
+              ))}
             </nav>
           </div>
         </div>
       </header>
 
-      <Drawer data={navByCat} showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
+      <Drawer data={categories} showDrawer={showDrawer} setShowDrawer={setShowDrawer} />
     </>
   );
 }

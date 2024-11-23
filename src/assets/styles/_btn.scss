@@ -1,125 +1,128 @@
 @layer components {
-    .btn {
-        @apply inline-flex items-center justify-center gap-2 text-white uppercase no-underline rounded-lg transition px-8 py-4 font-semibold bg-main;
-      
-        &:hover, &:active, &:focus  {
-            @apply bg-main;
-        }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 text-white uppercase no-underline rounded-lg transition px-8 py-4 font-semibold bg-main;
 
-        &_light {
-            @extend .btn;
-            @apply bg-gray-100 text-black rounded-xl capitalize hover:text-white dark:bg-dark_3 dark:text-white dark:hover:bg-main;
-        }
+    &:hover,
+    &:active,
+    &:focus {
+      @apply bg-main;
     }
 
-    .tags {
-        @apply flex items-center gap-2;
+    &_light {
+      @extend .btn;
+      @apply bg-gray-100 text-black rounded-xl capitalize hover:text-white dark:bg-dark_3 dark:text-white dark:hover:bg-main;
+    }
+  }
 
-        a {
-            @apply text-main;
-        }
+  .tags {
+    @apply flex items-center gap-2;
+
+    a {
+      @apply text-main;
+    }
+  }
+
+  .soc {
+    @apply flex gap-2;
+
+    a {
+      @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition cursor-pointer select-none dark:bg-dark_3 dark:text-white;
+
+      &:hover {
+        @apply text-white bg-rose-100 dark:bg-main dark:text-white;
+      }
     }
 
+    &_main a {
+      background-color: var(--color-main);
+      @apply text-white cursor-pointer select-none;
 
-    .soc {
-        @apply flex gap-2;
+      &:hover {
+        @apply text-white bg-gray-800;
+      }
+    }
+  }
 
-        a {
-            @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition cursor-pointer select-none dark:bg-dark_3 dark:text-white;
+  .chip {
+    @apply inline-flex text-[10px] tracking-widest font-bold uppercase px-4 py-2 rounded-full select-none text-white bg-main;
 
-            &:hover {
-                @apply text-white bg-rose-100 dark:bg-main dark:text-white;
-            }
-        }
+    .banners & {
+      @apply dark:bg-dark_2 dark:text-white bg-white text-main;
+    }
+  }
 
-        &_main a {
-            background-color: var(--color-main);
-            @apply text-white cursor-pointer select-none;
+  .date {
+    @apply flex gap-1 items-center text-[12px];
+  }
 
-            &:hover {
-                @apply text-white bg-gray-800;
-            }
-        }
+  .theme-switcher,
+  .search-btn,
+  .share-btn {
+    @apply w-[40px] h-[40px] inline-flex items-center justify-center text-white rounded-sm bg-main;
+  }
+
+  .contacts {
+    @apply flex gap-x-6 gap-y-1 items-center justify-center flex-wrap;
+
+    a {
+      @apply flex items-center gap-2;
     }
 
+    svg {
+      @apply text-main;
+    }
+  }
 
-    .chip {
-        @apply inline-flex text-[10px] tracking-widest font-bold uppercase px-4 py-2 rounded-full select-none text-white bg-main;
+  .networks {
+    @apply grid grid-cols-3 gap-3;
 
-        .banners & {
-            @apply dark:bg-dark_2 dark:text-white bg-white text-main;
+    .network {
+      @apply bg-gray-100 rounded-lg p-[8px] sm:p-4 flex flex-col items-center gap-1 transition dark:bg-dark_3 dark:hover:bg-dark_4;
+
+      &:hover {
+        @apply bg-rose-50 text-main;
+      }
+
+      svg {
+        @apply text-white;
+      }
+
+      &-icon {
+        @apply w-[40px] h-[40px] rounded-full flex items-center justify-center;
+      }
+
+      &-label {
+        @apply hidden sm:block;
+      }
+
+      .soc {
+        &-1 {
+          background-color: $color_1;
         }
-    }
-
-
-    .date {
-        @apply flex gap-1 items-center text-[12px];
-    }
-
-
-    .theme-switcher,
-    .search-btn,
-    .share-btn {
-        @apply w-[40px] h-[40px] inline-flex items-center justify-center text-white rounded-sm bg-main;
-    }
-
-
-    .contacts {
-        @apply flex gap-x-6 gap-y-1 items-center justify-center flex-wrap;
-
-        a {
-            @apply flex items-center gap-2;
+        &-2 {
+          background-color: $color_2;
         }
-
-        svg {
-            @apply text-main;
+        &-3 {
+          background-color: $color_3;
         }
-    }
-
-
-    .networks {
-        @apply grid grid-cols-3 gap-3;
-
-        .network {
-            @apply bg-gray-100 rounded-lg p-[8px] sm:p-4 flex flex-col items-center gap-1 transition dark:bg-dark_3 dark:hover:bg-dark_4;
-
-            &:hover {
-                @apply bg-rose-50 text-main;
-            }
-
-            svg {
-                @apply  text-white;
-            }
-
-            &-icon {
-                @apply  w-[40px] h-[40px] rounded-full flex items-center justify-center;
-            }
-
-            &-label {
-                @apply hidden sm:block;
-            }
-
-            .soc {
-                &-1 {
-                    background-color: $color_1;
-                }
-                &-2 {
-                    background-color: $color_2;
-                }
-                &-3 {
-                    background-color: $color_3;
-                }
-                &-4 {
-                    background-color: $color_4;
-                }
-                &-5 {
-                    background-color: $black;
-                }
-                &-6 {
-                    @apply bg-green-600;
-                }
-            }
+        &-4 {
+          background-color: $color_4;
         }
+        &-5 {
+          background-color: $black;
+        }
+        &-6 {
+          @apply bg-green-600;
+        }
+      }
     }
+  }
 
+  .pagination {
+    @apply mt-6 flex flex-wrap gap-3;
+
+    a {
+      @apply min-w-[45px] flex items-center justify-center py-2 px-4 border hover:bg-main hover:text-white transition;
+    }
+  }
 }

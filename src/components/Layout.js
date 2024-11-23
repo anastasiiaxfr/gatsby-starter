@@ -4,11 +4,11 @@ import Footer from "./Footer";
 
 import "../assets/styles/styles.sass";
 
-function Layout({ children }) {
+function Layout({ categories, children }) {
   return (
     <>
       <div className="page-wrapper">
-        <Header />
+        <Header categories={categories} />
         <main className="page-main">{children}</main>
       </div>
       <Footer />

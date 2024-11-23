@@ -1,8 +1,8 @@
 ---
-date: 2024-11-16T00:00:00+00:00
+date: 2024-11-03T00:00:00+00:00
 title: Customize your WooCommerce store with countless Web
 slug: "blog-1"
-category: "Bussiness"
+category: "Tech"
 authors: ["Anastasiia Berest"]
 exerpt: "You may already have questions - don't worry. We will cover every little detail in the rest of the documentation. For now, please read along so you can have a high-level understanding of what Vue offers."
 thumb: "../../assets/img/news/thumbs/n1.jpg"

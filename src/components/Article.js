@@ -7,7 +7,7 @@ const truncateText = (text, length) => {
   return text.length > length ? `${text.substring(0, length)}...` : text;
 };
 
-function Article({ data, name = "card", hasImg = true, lgDesc = false }) {
+function Article({ data, name = "card", hasImg = true, lgDesc = false, desc = true }) {
   let img = getImage(data.thumb);
   const truncatedExcerpt = truncateText(data.exerpt, lgDesc ? 300 : 100);
 
@@ -19,14 +19,14 @@ function Article({ data, name = "card", hasImg = true, lgDesc = false }) {
             <GatsbyImage image={img} alt="A dinosaur" />
           </Link>
           <div className="card-info">
-            <Link to="/" className="chip">
+            <Link to={`/category/${data.category.toLowerCase().replace(/\s+/g, "-")}`} className="chip">
               {data.category}
             </Link>
           </div>
         </div>
       ) : (
         <div className="card-info">
-          <Link to="/" className="chip">
+          <Link to={`/category/${data.category.toLowerCase().replace(/\s+/g, "-")}`} className="chip">
             {data.category}
           </Link>
         </div>
@@ -44,7 +44,7 @@ function Article({ data, name = "card", hasImg = true, lgDesc = false }) {
             <small> 10 min read</small>
           </div>
           <div className="card-title">{data.title}</div>
-          <div className="card-desc">{truncatedExcerpt}</div>
+          {desc && <div className="card-desc">{truncatedExcerpt}</div>}
         </Link>
         <div className="card-footer">
           <div className="card-auth">

@@ -1,9 +1,9 @@
 ---
-date: 2024-11-16T00:00:00+00:00
+date: 2024-11-08T00:00:00+00:00
 
 title: All of these special features come at an affordable price!
 slug: "blog-4"
-category: "Bussiness"
+category: "Economic"
 authors: ["Anastasiia Berest"]
 exerpt: "What about the reality where Hitler cured cancer, Morty? The answer is: Don't think about it."
 thumb: "../../assets/img/news/thumbs/n4.jpg"

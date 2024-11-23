@@ -6,10 +6,10 @@ import Article from "../../components/Article";
 
 function News({ data }) {
   const news = data.allMarkdownRemark.nodes;
-  const { allCategories } = data;
+  const { allCat } = data;
 
   return (
-    <Layout categories={allCategories.distinct}>
+    <Layout categories={allCat.distinct}>
       <div className="container">
         <h1 className="">Breaking news</h1>
         <section className="banners banners_1">
@@ -56,7 +56,7 @@ function News({ data }) {
 export default News;
 
 export const query = graphql`
-  query allNews {
+  query {
     allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/src/markdown/news//" } }) {
       nodes {
         frontmatter {
@@ -75,7 +75,7 @@ export const query = graphql`
         id
       }
     }
-    allCategories: allMarkdownRemark {
+    allCat: allMarkdownRemark {
       distinct(field: { frontmatter: { category: SELECT } })
     }
   }
