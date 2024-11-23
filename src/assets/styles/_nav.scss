@@ -18,7 +18,7 @@
 @layer components {
   .header-top,
   .footer {
-    @apply bg-black text-white py-3;
+    @apply bg-black dark:bg-dark_0 text-white py-3;
   }
 
   .header {
@@ -31,7 +31,7 @@
     }
 
     &-btm {
-      @apply py-4 bg-white border-y border-gray-100 shadow-sm dark:bg-[#111621] dark:text-white dark:border-y-gray-800;
+      @apply py-4 bg-white border-y border-gray-100 shadow-sm dark:bg-dark_2 dark:text-white dark:border-y-gray-800;
 
       .header-menu {
         @apply gap-2 gap-x-3;

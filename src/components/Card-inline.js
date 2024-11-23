@@ -3,13 +3,8 @@ import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { FaRegCalendarAlt } from "react-icons/fa";
 
-const truncateText = (text, length) => {
-  return text.length > length ? `${text.substring(0, length)}...` : text;
-};
-
 function Article({ data, name = "card", showImg = true, lgDesc = false, desc = true }) {
   let img = getImage(data.thumb);
-  const truncatedExcerpt = truncateText(data.exerpt, lgDesc ? 300 : 100);
 
   return (
     <article className={name}>
@@ -44,7 +39,7 @@ function Article({ data, name = "card", showImg = true, lgDesc = false, desc = t
             <small> 10 min read</small>
           </div>
           <div className="card-title">{data.title}</div>
-          {desc && <div className="card-desc">{truncatedExcerpt}</div>}
+          {desc && <div className="card-desc">{data.exerpt}</div>}
         </Link>
         <div className="card-footer">
           <div className="card-auth">

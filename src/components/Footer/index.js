@@ -6,9 +6,9 @@ import { MdAlternateEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
 
 const contacts = [
-  { icon:  <MdAlternateEmail />, url: 'mailto:xfroeal.news@gmail.com', label: 'xfroeal.news@gmail.com' },
-  { icon: <BsFillTelephoneFill />, url: 'tel:+380630633226', label: '+38 063 063 32 26' },
-]
+  { icon: <MdAlternateEmail />, url: "mailto:xforeal.news@gmail.com", label: "xforeal.news@gmail.com" },
+  { icon: <BsFillTelephoneFill />, url: "tel:+380630633226", label: "+38 063 063 32 26" },
+];
 
 function Footer() {
   return (
@@ -26,25 +26,22 @@ function Footer() {
           <Socials />
         </div>
       </div>
-      
+
       <div className="footer-mdl">
         <div className="container">
-         
-        <nav className="contacts">
-          {contacts.map((i, ind) => (
-            <Link to={i.url} key={ind}> 
+          <nav className="contacts">
+            {contacts.map((i, ind) => (
+              <Link to={i.url} key={ind}>
                 {i.icon}
                 <span>{i.label}</span>
-           </Link>
-          ))}
+              </Link>
+            ))}
           </nav>
-          <span>&copy; 2024 XFR.News. All right reseived</span>
+          <span>&copy; 2024 XFR.News. All rights reserved</span>
         </div>
       </div>
       <div className="footer-btm">
-        <div className="container">
-        
-        </div>
+        <div className="container"></div>
       </div>
     </footer>
   );

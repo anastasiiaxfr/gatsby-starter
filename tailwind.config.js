@@ -1,26 +1,27 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,js}"],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ["Montserrat", "sans-serif"],
       },
       colors: {
-        main: '#dc2626',
-        dark_1: '#0d0e0f', 
-        dark_2: '#111621',
-        dark_3: '#181c2e',
-        dark_4: '#1f2439',
-        dark_5: '#87909f'
+        main: "#dc2626",
+        dark_0: "#0d0f18",
+        dark_1: "#0d0e0f",
+        dark_2: "#111621",
+        dark_3: "#181c2e",
+        dark_4: "#1f2439",
+        dark_5: "#87909f",
       },
     },
   },
   variants: {
     extend: {
-        backgroundImage: ['dark']
-    }
-},
+      backgroundImage: ["dark"],
+    },
+  },
   plugins: [],
 };

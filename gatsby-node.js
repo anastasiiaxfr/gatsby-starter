@@ -28,7 +28,7 @@ exports.createPages = async function({ actions, graphql }) {
       query {
         allMarkdownRemark(
           filter: { frontmatter: { category: { eq: "${category}" } } }
-          limit: 1000
+          limit: 500
         ) {
           edges {
             node {
@@ -62,6 +62,74 @@ exports.createPages = async function({ actions, graphql }) {
         component: path.resolve("./src/templates/category-single.js"), // Path to the category template
         context: {
           category,
+          limit: postsPerPage, // Number of posts per page
+          skip: pageIndex * postsPerPage, // Skip posts for pagination
+          numPages,
+          currentPage, // Current page number
+        },
+      });
+    });
+  });
+
+  // Query to get all unique authors from markdown files
+  const authorResult = await graphql(`
+    query {
+      allMarkdownRemark {
+        distinct(field: { frontmatter: { authors: SELECT } })
+      }
+    }
+  `);
+
+  if (authorResult.errors) {
+    console.log("Error fetching authors:", authorResult.errors);
+    return;
+  }
+
+  const authors = authorResult.data.allMarkdownRemark.distinct;
+
+  // Create paginated author pages
+  authors.forEach(async (author) => {
+    const authorSlug = author.toLowerCase().replace(/\s+/g, "-"); // Generate a slug for the author
+
+    // Query for all posts by this author to paginate
+    const postsResult = await graphql(`
+      query {
+        allMarkdownRemark(
+          filter: { frontmatter: { authors: { eq: "${author}" } } }
+          limit: 500
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                slug
+              }
+            }
+          }
+        }
+      }
+    `);
+
+    if (postsResult.errors) {
+      console.log(`Error fetching posts for author: ${author}`, postsResult.errors);
+      return;
+    }
+
+    const posts = postsResult.data.allMarkdownRemark.edges;
+    const postsPerPage = 3; // Define how many posts per page
+    const numPages = Math.ceil(posts.length / postsPerPage);
+
+    Array.from({ length: numPages }).forEach((_, pageIndex) => {
+      const currentPage = pageIndex + 1;
+      const pagePath = currentPage === 1 ? `/authors/${authorSlug}/` : `/authors/${authorSlug}/${currentPage}`;
+
+      // Create the paginated author page
+      createPage({
+        path: pagePath,
+        component: path.resolve("./src/templates/author-single.js"), // Path to the author template
+        context: {
+          author,
           limit: postsPerPage, // Number of posts per page
           skip: pageIndex * postsPerPage, // Skip posts for pagination
           numPages,

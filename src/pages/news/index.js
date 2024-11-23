@@ -17,7 +17,7 @@ function News({ data }) {
             <StaticImage src="../assets/img/news/banners/b1.jpg" alt="A dinosaur" />
           </Link>
           {news.slice(0, 1).map((i, ind) => (
-            <Article data={i.frontmatter} key={ind} hasImg={false} lgDesc={true} />
+            <Article data={i.frontmatter} key={ind} showImg={false} lgDesc={true} />
           ))}
         </section>
         <section className="cards cards_2">
@@ -25,7 +25,7 @@ function News({ data }) {
             <Article
               data={i.frontmatter}
               key={ind}
-              hasImg={ind === 0 || ind == 1 || ind === 2 ? false : true}
+              showImg={ind === 0 || ind == 1 || ind === 2 ? false : true}
               name={`card ${ind === 0 ? "card-lg" : ""}`}
               lgDesc={ind === 0 ? true : false}
             />

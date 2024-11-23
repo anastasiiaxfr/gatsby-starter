@@ -1,45 +1,18 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
 import Card from "../components/Article";
-import { MdKeyboardArrowRight } from "react-icons/md";
-import { MdKeyboardArrowLeft } from "react-icons/md";
-import { StaticImage } from "gatsby-plugin-image";
+import Pagination from "../components/Pagination";
 
 const CategoryTemplate = ({ data, pageContext }) => {
   // const posts = data.allMarkdownRemark.edges;
-  console.log("category", data);
+  //console.log("category", data);
   const { category } = pageContext;
   const { numPages, currentPage } = pageContext;
 
   const { allCategories } = data;
   const posts = data.allMarkdownRemark.edges;
-
-  const prevPage =
-    currentPage === 1
-      ? null
-      : currentPage === 2
-      ? `/category/${category.toLowerCase().replace(/\s+/g, "-")}/`
-      : `/category/${category.toLowerCase().replace(/\s+/g, "-")}/${currentPage - 1}`;
-
-  const nextPage =
-    currentPage === numPages ? null : `/category/${category.toLowerCase().replace(/\s+/g, "-")}/${currentPage + 1}`;
-
-  // Calculate the range of page numbers to show
-  const pageNumbers = [];
-  const rangeSize = 5; // Number of pages before and after
-  let startPage = Math.max(1, currentPage - Math.floor(rangeSize / 2));
-  let endPage = Math.min(numPages, currentPage + Math.floor(rangeSize / 2));
-
-  // Adjust the startPage to ensure we have 5 pages if possible
-  if (endPage - startPage < rangeSize - 1) {
-    startPage = Math.max(1, endPage - rangeSize + 1);
-  }
-
-  // Collect the page numbers
-  for (let i = startPage; i <= endPage; i++) {
-    pageNumbers.push(i);
-  }
 
   return (
     <Layout categories={allCategories.distinct}>
@@ -61,36 +34,12 @@ const CategoryTemplate = ({ data, pageContext }) => {
               data={node.frontmatter}
               name={`card`}
               desc={false}
-              hasImg={posts.length === 1 || posts.length === 2 ? false : true}
+              showImg={posts.length === 1 || posts.length === 2 ? false : true}
             />
           ))}
         </div>
 
-        {numPages > 1 && (
-          <nav className="pagination">
-            {prevPage && (
-              <Link to={prevPage} className="prev-page">
-                <MdKeyboardArrowLeft />
-              </Link>
-            )}
-
-            {pageNumbers.map((pageNum) => (
-              <Link
-                to={`/category/${category.toLowerCase().replace(/\s+/g, "-")}/${pageNum === 1 ? "" : pageNum}`}
-                key={pageNum}
-                className={`page-number ${pageNum === currentPage ? "active" : ""}`}
-              >
-                {pageNum}
-              </Link>
-            ))}
-
-            {nextPage && (
-              <Link to={nextPage} className="next-page">
-                <MdKeyboardArrowRight />
-              </Link>
-            )}
-          </nav>
-        )}
+        {numPages > 1 && <Pagination numPages={numPages} currentPage={currentPage} data={category} part="category" />}
       </div>
     </Layout>
   );

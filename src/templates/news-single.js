@@ -8,10 +8,9 @@ import Share from "../components/Share";
 import { FaRegCalendarAlt, FaRegBookmark, FaRegHeart } from "react-icons/fa";
 
 function SingleNews({ data }) {
-  const { markdownRemark, latestNews, allAuthors } = data;
+  const { markdownRemark, latestNews, allAuthors, allCategories } = data;
   const { title, authors, category, date, exerpt, thumb } = markdownRemark.frontmatter;
   const img = getImage(thumb);
-  const { allCategories } = data;
 
   return (
     <Layout categories={allCategories.distinct}>
@@ -151,7 +150,6 @@ export const query = graphql`
         }
       }
     }
-
     allCategories: allMarkdownRemark {
       distinct(field: { frontmatter: { category: SELECT } })
     }

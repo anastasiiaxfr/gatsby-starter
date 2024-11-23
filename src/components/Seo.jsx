@@ -2,19 +2,14 @@ import React from "react";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 export const SEO = ({ title, description, pathname, image, link, children }) => {
-  const {
-    title: defaultTitle,
-    description: defaultDescription,
-    siteUrl,
-    twitterUsername,
-  } = useSiteMetadata();
+  const { title: defaultTitle, description: defaultDescription, siteUrl, twitterUsername } = useSiteMetadata();
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: image || '/seo/seo1.jpg', 
-    url: `${siteUrl}${pathname || ''}`,
-    link: link ? `${siteUrl}${link}` : '/',
+    image: image || "/seo/seo.jpg",
+    url: `${siteUrl}${pathname || ""}`,
+    link: link ? `${siteUrl}${link}` : "/",
     twitterUsername,
     author: "Anastasiia Berest",
   };
@@ -61,6 +56,42 @@ export const SEO = ({ title, description, pathname, image, link, children }) => 
 
       {/* Canonical Link */}
       <link rel="canonical" href={seo.link} />
+
+      <script async type="application/ld+json">
+        {`
+          {
+            "@context": "http://schema.org/",
+            "@type": "Organization",
+            "name": "XFR.News",
+            "brand": "XFR.News",
+            "alternateName": "XFR.News",
+            "url": "https://xforeal-news-md.vercel.app",
+            "logo": "https://xforeal-news-md.vercel.app/seo/logo.svg",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "вул. Василя Тютюнника 28А",
+              "addressLocality": "Київ",
+              "addressCountry": "Україна"
+            },
+            "contactPoint": [{
+              "@type": "ContactPoint",
+              "telephone": "+380630633226",
+              "email": "xfr.newse@gmail.com",
+              "contactType": "customer support",
+              "areaServed": "UA",
+              "availableLanguage": ["Ukrainian"]
+            }],
+            "sameAs": [
+              "https://www.facebook.com/",
+              "https://www.instagram.com/",
+              "https://www.tiktok.com/",
+              "https://twitter.com/",
+              "https://www.youtube.com/",
+              "https://t.me/"
+            ]
+          }
+        `}
+      </script>
 
       {/* Children content passed to the SEO component */}
       {children}
