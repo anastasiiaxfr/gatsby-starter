@@ -44,7 +44,7 @@
     @apply flex flex-col gap-8;
 
     &-block {
-      @apply my-0 p-6 bg-gray-50 rounded-lg w-full dark:bg-dark_2;
+      @apply my-0 p-6 bg-light_1 rounded-lg w-full dark:bg-dark_2;
 
       h2 {
         @apply mt-0 text-2xl;

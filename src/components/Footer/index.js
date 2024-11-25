@@ -21,7 +21,7 @@ function Footer() {
             <Link to="/policy">Privacy policy</Link>
             <Link to="/cookie">Cookie policy</Link>
             <Link to="/sitemap">Sitemap</Link>
-            <Link to="/contacts">About Us</Link>
+            <Link to="/about-us">About Us</Link>
           </nav>
           <Socials />
         </div>

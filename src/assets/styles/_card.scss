@@ -116,4 +116,62 @@
       }
     }
   }
+
+
+  .box {
+    @apply p-8 rounded-lg bg-light_1 dark:bg-dark_2 dark:text-dark_5;
+
+    .icon {
+      @apply mb-4;
+    }
+
+    h2 {
+      @apply text-2xl dark:text-white;
+    }
+
+    p {
+      @apply text-sm;
+    }
+
+    &_img {
+      @apply grid gap-x-8 gap-y-4;
+      grid-template-columns: 1fr 1fr;
+
+      @media screen and (max-width: 640px) {
+        grid-template-columns: 1fr;
+      }
+
+      & > * {
+        @apply rounded-2xl object-cover;
+      }
+
+     
+    }
+
+    &-demo {
+      @apply relative rounded-xl overflow-hidden w-full;
+
+      & > * {
+        @apply w-full;
+      }
+
+      & img {
+          @apply block absolute w-full  object-cover inset-0;
+        }
+      
+
+      &-btn {
+        @apply absolute bottom-5 left-0 right-0 m-auto rounded max-w-[200px] flex items-center justify-center gap-3 p-3 bg-main text-white  font-semibold;
+        
+      }
+    }
+
+    &_bd {
+      @apply border dark:border-gray-800 lg:border-l-0 grid lg:grid-cols-2 items-center;
+
+      p {
+        @apply text-sm dark:text-dark_5;
+      }
+    } 
+  }
 }

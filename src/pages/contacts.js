@@ -67,61 +67,58 @@ function Contacts({ data }) {
     const { allCategories } = data;
     return (
         <Layout categories={allCategories.distinct}>
-            <section className="mb-10">
-                        <div className="container">
-                            
+            <div className="page">
+                <section className="mb-10">
+                    <div className="container">
+                        <div className="row_1">
+                            <div>
+                                <h1>Contact Us</h1>
+                                <div className="mb-8 opacity-60 dark:opacity-100 dark:text-dark_5">
+                                    <p className="">
+                                        At <b>XFR.News</b>, we’re excited to connect with you! Whether you're starting a new lighting design project or simply looking for expert guidance, we’re here to assist.
+                                    </p>
 
-                            <div className="row_1">
-                                <div>
-                                    <h1>Contact Us</h1>
-                                    <div className="mb-8 opacity-60 dark:opacity-100 dark:text-dark_5">
-                                        <p className="">
-                                            At <b>XFR.News</b>, we’re excited to connect with you! Whether you're starting a new lighting design project or simply looking for expert guidance, we’re here to assist.
-                                        </p>
-
-                                        <p>
-                                            <small>
-                                                Feel free to reach out using the contact details below—we can’t wait to hear from you and help bring your vision to life!
-                                            </small>
-                                        </p>
-                                    </div>
-
-                                    <nav className="contacts justify-start">
-                                        {mainContacts.map((i, ind) => (
-                                            <Link target="_blank" to={i.url} key={ind}>
-                                                {i.icon}
-                                                {i.label}
-                                            </Link>
-                                        ))}
-                                    </nav>
-
-                                    <div className="text-2xl font-semibold mb-4 mt-8">Let's <u className="">Work</u> Together!</div>
-                                    <Networks />
-                                    
+                                    <p>
+                                        <small>
+                                            Feel free to reach out using the contact details below—we can’t wait to hear from you and help bring your vision to life!
+                                        </small>
+                                    </p>
                                 </div>
-                                <div>
-                                    <ContactForm />
-                                </div>
+
+                                <nav className="contacts justify-start">
+                                    {mainContacts.map((i, ind) => (
+                                        <Link target="_blank" to={i.url} key={ind}>
+                                            {i.icon}
+                                            {i.label}
+                                        </Link>
+                                    ))}
+                                </nav>
+
+                                <div className="text-2xl font-semibold mb-4 mt-8">Let's <u className="">Work</u> Together!</div>
+                                <Networks />
+
                             </div>
-
-                            
-
+                            <div>
+                                <ContactForm />
+                            </div>
                         </div>
-                    </section>
-                    <section className="">
-                        <div className="container">
+                    </div>
+                </section>
+                <section className="">
+                    <div className="container">
                         <h2 className="h1 mt-0">Get in Touch with Us!</h2>
                         <nav className="contact-cards">
-                                {offices.map((i, ind) => (
-                                    <div className="contact-card" key={ind}>
-                                        {i.contacts.map((i, ind) => (
-                                            <Link target="_blank" to={i.url}>{i.icon} {i.label}</Link>
-                                        ))}
-                                    </div>
-                                ))}
-                            </nav>
-                        </div>
-                    </section>
+                            {offices.map((i, ind) => (
+                                <div className="contact-card" key={ind}>
+                                    {i.contacts.map((i, ind) => (
+                                        <Link target="_blank" to={i.url}>{i.icon} {i.label}</Link>
+                                    ))}
+                                </div>
+                            ))}
+                        </nav>
+                    </div>
+                </section>
+            </div>
         </Layout>
     );
 }

@@ -13,6 +13,9 @@
         }
     }
 
+    h3 {
+        @apply text-2xl font-semibold mb-5 mt-0;
+    }
 
     p {
         @apply text-[18px] my-3;
@@ -31,7 +34,7 @@
 
 @layer components {
     blockquote {
-        @apply bg-gray-100 p-8 my-8 rounded-lg text-center font-semibold dark:bg-dark_2;
+        @apply bg-light_1 p-8 my-8 rounded-lg text-center font-semibold dark:bg-dark_2;
     }
 
     blockquote p {
@@ -49,6 +52,14 @@
     }
 
    .subtitle {
-    @apply text-xl mt-3 mb-6 opacity-60 dark:opacity-100 dark:text-dark_5;
+    @apply text-lg mt-3 mb-6 opacity-60 dark:opacity-100 dark:text-dark_5;
+   }
+
+   .text-slogan {
+    @apply font-thin text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight my-0 dark:border-gray-800 !important;
+
+    b {
+        @apply font-normal !important; 
+    }
    }
 }

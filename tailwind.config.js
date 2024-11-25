@@ -8,7 +8,8 @@ module.exports = {
         sans: ["Montserrat", "sans-serif"],
       },
       colors: {
-        main: "#dc2626",
+        main: "var(--color-main)",
+        light_1: '#fafafa',
         dark_0: "#0d0f18",
         dark_1: "#0d0e0f",
         dark_2: "#111621",

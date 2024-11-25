@@ -29,7 +29,7 @@
       @apply flex items-center justify-center text-black bg-gray-200 w-[40px] h-[40px] rounded-sm transition cursor-pointer select-none dark:bg-dark_3 dark:text-white;
 
       &:hover {
-        @apply text-white bg-rose-100 dark:bg-main dark:text-white;
+        @apply text-white  bg-main dark:text-white;
       }
     }
 
@@ -175,5 +175,13 @@
       @apply w-full rounded-sm;
     }
    
+  }
+
+  .icon {
+    @apply bg-main text-white rounded-xl w-[100px] h-[100px] p-2 flex items-center justify-center;
+
+    svg {
+      @apply w-[60px] h-[60px];
+    }
   }
 }
