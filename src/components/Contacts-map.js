@@ -1,48 +1,129 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import GoogleMapReact from 'google-map-react';
 
-const ContactMap = () => {
-  useEffect(() => {
-    // Dynamically load the Google Maps script if not already loaded
-    if (!window.google) {
-      const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyBPF99qS_1PYbUeLp_O7KqhMBv75-vRx2E&callback=initMap`;
-      script.async = true;
-      document.head.appendChild(script);
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-      // Initialize the map when the script is loaded
-      window.initMap = () => {
-        const location = { lat: 50.4692319, lng: 30.46604775 };
-        const map = new window.google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: location,
-          styles: [
-            { elementType: 'geometry', stylers: [{ color: '#0d0f18' }] },
-            { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
-            { elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
-            { elementType: 'labels.text.stroke', stylers: [{ color: '#0d0f18' }] },
-            { featureType: 'administrative.locality', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
-            { featureType: 'poi', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
-            { featureType: 'poi.park', elementType: 'geometry', stylers: [{ color: '#181818' }] },
-            { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#1f2439' }] },
-            { featureType: 'road', elementType: 'labels.text.fill', stylers: [{ color: '#9e9e9e' }] },
-            { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#000000' }] },
-            { featureType: 'water', elementType: 'labels.text.fill', stylers: [{ color: '#3d3d3d' }] }
-          ]
-        });
+export default function SimpleMap() {
+  const defaultProps = {
+    center: {
+      lat: 10.99835602,
+      lng: 77.01502627
+    },
+    zoom: 11
+  };
 
-        new window.google.maps.Marker({
-          position: location,
-          map: map
-        });
-      };
+  const darkMode = [
+    {
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#0d0f18"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.icon",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#757575"
+        }
+      ]
+    },
+    {
+      "elementType": "labels.text.stroke",
+      "stylers": [
+        {
+          "color": "#212121"
+        }
+      ]
+    },
+    {
+      "featureType": "administrative.locality",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#bdbdbd"
+        }
+      ]
+    },
+    {
+      "featureType": "poi",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#757575"
+        }
+      ]
+    },
+    {
+      "featureType": "poi.park",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#181818"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#1f2439"
+        }
+      ]
+    },
+    {
+      "featureType": "road",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#9e9e9e"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [
+        {
+          "color": "#000000"
+        }
+      ]
+    },
+    {
+      "featureType": "water",
+      "elementType": "labels.text.fill",
+      "stylers": [
+        {
+          "color": "#3d3d3d"
+        }
+      ]
     }
-  }, []);
+  ];
 
   return (
-    <section className="mb-0 bg-gray-100">
-      <div id="map" style={{ width: '100%', height: '400px' }}></div>
-    </section>
+    <div style={{ height: '50vh', width: '100%' }}>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "AIzaSyBPF99qS_1PYbUeLp_O7KqhMBv75-vRx2E" }}  // Replace with your actual API key
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+        options={{ styles: darkMode }}  
+      >
+        <AnyReactComponent
+          lat={59.955413}
+          lng={30.337844}
+          text="My Marker"
+        />
+      </GoogleMapReact>
+    </div>
   );
-};
-
-export default ContactMap;
+}

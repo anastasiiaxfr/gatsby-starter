@@ -54,6 +54,7 @@ export default function Header({ categories }) {
             <nav className="header-menu">
               <Link to="/contacts">Contacts</Link>
               <Link to="/authors">Authors</Link>
+              <Link to="/faq">FAQ</Link>
 
               <div className="menu-dd" ref={dropdownRef}>
                 <button
@@ -121,7 +122,7 @@ export default function Header({ categories }) {
                 )}
               </div>
 
-              <Link to="/faq">FAQ</Link>
+              
             </nav>
 
             <div className="header-cta">

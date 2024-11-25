@@ -1,11 +1,10 @@
 import React from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 import { SEO } from "../components/Seo";
 import { Link, graphql } from "gatsby";
 import Networks from "../components/Socials";
 import ContactForm from "../components/Form-contacts";
-import ContactMap from "../components/Contacts-map";
+// import ContactMap from "../components/Contacts-map";
 
 import { MdAlternateEmail } from "react-icons/md";
 import { BsFillTelephoneFill } from "react-icons/bs";
@@ -67,18 +66,15 @@ const offices = [
 function Contacts({ data }) {
     const { allCategories } = data;
     return (
-        <>
-            <div className="page-wrapper">
-                <Header categories={allCategories.distinct} />
-                <div className="page my-10">
-                    <section className="mb-10">
+        <Layout categories={allCategories.distinct}>
+            <section className="mb-10">
                         <div className="container">
                             
 
                             <div className="row_1">
                                 <div>
                                     <h1>Contact Us</h1>
-                                    <div className="mb-8">
+                                    <div className="mb-8 opacity-60 dark:opacity-100 dark:text-dark_5">
                                         <p className="">
                                             At <b>XFR.News</b>, we’re excited to connect with you! Whether you're starting a new lighting design project or simply looking for expert guidance, we’re here to assist.
                                         </p>
@@ -126,11 +122,7 @@ function Contacts({ data }) {
                             </nav>
                         </div>
                     </section>
-                </div>
-                <ContactMap />
-            </div>
-            <Footer />
-        </>
+        </Layout>
     );
 }
 

@@ -63,5 +63,12 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {},
     },
+
+    {
+      resolve: 'gatsby-plugin-env-variables',
+      options: {
+        allowList: ['GMAP_API', 'TEST'], 
+      },
+    },
   ],
 };
