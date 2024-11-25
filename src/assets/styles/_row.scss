@@ -1,0 +1,5 @@
+.row {
+    &_1 {
+        @apply grid lg:grid-cols-2 gap-x-10 gap-y-8 items-center;
+    }
+}

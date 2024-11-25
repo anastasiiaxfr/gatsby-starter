@@ -71,6 +71,44 @@
     svg {
       @apply text-main;
     }
+
+    &_col {
+      @apply flex flex-col gap-4 mt-8;
+
+      a {
+        @apply flex items-center gap-2 font-semibold ;
+
+        &:hover {
+          svg {
+            @apply bg-dark_4 text-white;
+          }
+        }
+      }
+  
+      svg {
+        @apply bg-main text-white dark:bg-dark_3 dark:text-white w-[40px] h-[40px] rounded-sm flex items-center justify-center p-3 transition duration-300;
+      }
+    }
+
+   
+  }
+
+  .contact {
+    &-cards {
+      @apply grid lg:grid-cols-3 gap-8;
+    }
+
+    &-card {
+      @apply p-8 border border-2 rounded-lg flex flex-col gap-4 dark:border-gray-800;
+
+      a {
+        @apply flex items-center gap-3 dark:text-dark_5 font-semibold;
+
+        svg {
+          @apply min-w-[40px] w-[40px] h-[40px] p-3 rounded-lg bg-gray-100 text-black dark:bg-dark_3 dark:text-white;
+        }
+      }
+    }
   }
 
   .networks {
@@ -124,5 +162,18 @@
     a {
       @apply min-w-[45px] flex items-center justify-center py-2 px-4 border dark:border-gray-800 hover:bg-main hover:text-white transition rounded;
     }
+  }
+
+  .form {
+    @apply bg-gray-100 dark:bg-dark_3 dark:text-white rounded-md p-4 sm:p-10 flex flex-col gap-4 max-w-[900px] mx-auto;
+
+    input:not([type='radio']):not([type='checkbox']), textarea {
+      @apply w-full p-4 px-8 resize-none rounded-sm border border-white focus-visible:outline-none focus-visible:border-gray-200 border-2 dark:bg-dark_4 dark:text-white dark:border-gray-800;
+    }
+
+    [type='submit']{
+      @apply w-full rounded-sm;
+    }
+   
   }
 }

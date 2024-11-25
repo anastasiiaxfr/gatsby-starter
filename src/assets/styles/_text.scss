@@ -47,4 +47,8 @@
         color: var(--color-main);
         margin-bottom: -50px;
     }
+
+   .subtitle {
+    @apply text-xl mt-3 mb-6 opacity-60 dark:opacity-100 dark:text-dark_5;
+   }
 }
