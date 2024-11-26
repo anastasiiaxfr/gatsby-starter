@@ -15,7 +15,7 @@ contacts:
   - name: twitter
     link: 'https://x.com/'
   - name: telegram
-    link: '@anastasiia-xfr'
+    link: 'https://t.me/+380630633226'
   - name: email
     link: 'mailto:anastasiiaberest@gmail.com'
 ---

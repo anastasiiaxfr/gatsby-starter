@@ -174,4 +174,55 @@
       }
     } 
   }
+
+  .teams {
+    @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8;
+    @media screen and (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .team {
+    @apply relative m-0 rounded-md overflow-hidden p-4 border dark:border-gray-800;
+
+    & .gatsby-image-wrapper {
+      &, & * {
+        @apply w-full h-full object-cover max-w-full;
+        max-width: 100% !important;
+      }
+    }
+
+    img {
+      @apply grayscale;
+    }
+
+    &-content {
+      @apply font-semibold;
+    }
+
+    &-overlay {
+      @apply absolute inset-0 text-white flex flex-col justify-between items-center text-center p-8 opacity-0 transition;
+      background: linear-gradient(180deg, var(--color-main), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+
+      a {
+        @apply bg-white text-black rounded-md;
+      }
+    }
+    &-title {
+      @apply uppercase text-sm;
+    } 
+    &-info {
+      @apply mt-1 text-main;
+      line-height: 1.2;
+    }
+
+    &:hover {
+      img {
+        @apply  grayscale-0;
+      }
+      .team-overlay {
+        @apply opacity-100;
+      }
+    }
+  }
 }

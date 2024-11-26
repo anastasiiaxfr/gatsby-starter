@@ -11,7 +11,7 @@ import { MdAlternateEmail } from "react-icons/md";
 const socPost = [
     { icon: <FaFacebookF />, url: "/", label: "Facenook" },
     { icon: <FaXTwitter />, url: "/", label: "Twitter" },
-    { icon: <FaTelegramPlane />, url: "/", label: "Telegram" },
+    { icon: <FaTelegramPlane />, url: "https://t.me/+380630633226", label: "Telegram" },
     { icon: <IoShareSocial />, url: "/", label: "Share" },
 ];
 
