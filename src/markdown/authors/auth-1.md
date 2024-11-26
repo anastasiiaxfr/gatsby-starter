@@ -2,7 +2,7 @@
 title: Anastasiia Berest
 name: authors
 slug: 'anastasiia-berest'
-job: Frontend Developer
+job: Lead UI Engineer && Frontend Developer
 ava: '../../assets/img/authors/ava1.jpg'
 
 exerpt: She is a lawyer, podcaster, speaker, and writer. As an educational content director, she helps develop HasThemes premium training products.
