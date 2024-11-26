@@ -2,13 +2,7 @@
     .authors {
         @apply grid gap-6 my-0;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        .soc {
-            @apply justify-center mb-4;
-
-            a {
-                @apply bg-gray-200 text-black hover:bg-main hover:text-white dark:bg-dark_3 dark:text-white dark:hover:bg-main;
-            }
-        }
+        
     }
 
     .author {
@@ -27,6 +21,14 @@
 
             & > * {
                 @apply object-cover;
+            }
+        }
+
+        .soc {
+            @apply justify-center mb-4;
+
+            a {
+                @apply bg-gray-200 text-black hover:bg-main hover:text-white dark:bg-dark_3 dark:text-white dark:hover:bg-main;
             }
         }
     }

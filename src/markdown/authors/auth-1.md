@@ -12,8 +12,6 @@ contacts:
     link: 'https://www.linkedin.com/in/webdev-anastasiiaxfr/'
   - name: facebook
     link: 'https://www.facebook.com/renmakesmusic'
-  - name: twitter
-    link: 'https://x.com/'
   - name: telegram
     link: 'https://t.me/+380630633226'
   - name: email

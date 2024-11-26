@@ -20,7 +20,7 @@ function Drawer({ data, showDrawer, setShowDrawer }) {
             {i}
           </Link>
         ))}
-        <Link to="/" onClick={() => setShowDrawer(false)}>Authors</Link>
+        <Link to="/authors" onClick={() => setShowDrawer(false)}>Authors</Link>
         <Link to="/about-us" onClick={() => setShowDrawer(false)}>About Us</Link>
         <Link to="/contacts" onClick={() => setShowDrawer(false)}>Contact Us</Link>
       </nav>

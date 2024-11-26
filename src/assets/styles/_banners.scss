@@ -31,6 +31,10 @@
     &_lg {
       @extend .banner;
       @apply hidden sm:flex md:col-span-2;
+
+      & * {
+        max-width: 100% !important;
+      }
     }
   }
 
