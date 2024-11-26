@@ -2,7 +2,7 @@
 title: Darrell Shelton
 name: team
 slug: 'darrell-shelton'
-job: UI/UX Art Master
+job: MA in Design && UI/UX  
 ava: '../../assets/img/team/t4.jpg'
 
 exerpt: She is a lawyer, podcaster, speaker, and writer. As an educational content director, she helps develop HasThemes premium training products.
