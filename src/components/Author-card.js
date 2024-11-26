@@ -8,7 +8,7 @@ function AuthorCard({ data }) {
     console.log('authors', data)
     return (
         <section className="authors">
-            {data.map((i, ind) => (
+            {data?.map((i, ind) => (
                 <figure className="author" key={ind}>
                     <div className="author-img">
                         <GatsbyImage image={getImage(i.frontmatter.ava)}/>

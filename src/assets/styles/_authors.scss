@@ -1,7 +1,7 @@
 @layer components {
     .authors {
-        @apply flex flex-col gap-6 my-0;
-
+        @apply grid gap-6 my-0;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         .soc {
             @apply justify-center mb-4;
 
