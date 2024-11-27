@@ -8,8 +8,9 @@ import Share from "../components/Share";
 import { FaRegCalendarAlt, FaRegBookmark, FaRegHeart } from "react-icons/fa";
 
 function SingleNews({ data }) {
-  const { markdownRemark, latestNews, allAuthors, allCategories } = data;
-  const { title, authors, category, date, exerpt, thumb } = markdownRemark.frontmatter;
+  const { markdownRemark, latestNews, allAuthors, allCategories, site } = data;
+  const { title, authors, category, date, exerpt, thumb, slug } =
+    markdownRemark.frontmatter;
   const img = getImage(thumb);
 
   return (
@@ -40,7 +41,8 @@ function SingleNews({ data }) {
               <div className="date">
                 <FaRegCalendarAlt />
                 <time dateTime={date}>
-                  {new Date(date).getFullYear()}-{String(new Date(date).getMonth() + 1).padStart(2, "0")}-
+                  {new Date(date).getFullYear()}-
+                  {String(new Date(date).getMonth() + 1).padStart(2, "0")}-
                   {String(new Date(date).getDate()).padStart(2, "0")}
                 </time>
                 | <small>10 min read</small>
@@ -59,7 +61,10 @@ function SingleNews({ data }) {
             <h1>{title}</h1>
             <div className="post-lead">{exerpt}</div>
 
-            <div className="post-content" dangerouslySetInnerHTML={{ __html: markdownRemark.html }}></div>
+            <div
+              className="post-content"
+              dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+            ></div>
 
             <div className="post-footer">
               <div className="tags">
@@ -67,11 +72,15 @@ function SingleNews({ data }) {
                 <Link to="/">Tag1</Link> / <Link to="/">Tag2</Link>
               </div>
 
-              <Share data={latestNews} />
+              <Share data={`${site.siteMetadata.siteUrl}/news/${slug}`} />
             </div>
           </section>
 
-          <Sidebar data={latestNews.nodes} currentAuthors={authors} authors={allAuthors.nodes} />
+          <Sidebar
+            data={latestNews.nodes}
+            currentAuthors={authors}
+            authors={allAuthors.nodes}
+          />
         </article>
       </div>
     </Layout>
@@ -85,14 +94,29 @@ export const Head = ({ data }) => {
   const { markdownRemark } = data;
   const { title, thumb, exerpt, slug } = markdownRemark.frontmatter;
 
-  return <SEO title={title} image={thumb.childImageSharp.fluid.src} description={exerpt} link={`/news/${slug}`} />;
+  return (
+    <SEO
+      title={title}
+      image={thumb.childImageSharp.fluid.src}
+      description={exerpt}
+      link={`/news/${slug}`}
+    />
+  );
 };
 
 // GraphQL query to fetch the current post and latest posts
 export const query = graphql`
-  query($slug: String) {
+  query ($slug: String) {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     latestNews: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/src/markdown/news//" }, frontmatter: { slug: { ne: $slug } } }
+      filter: {
+        fileAbsolutePath: { regex: "/src/markdown/news//" }
+        frontmatter: { slug: { ne: $slug } }
+      }
       limit: 5
     ) {
       nodes {
@@ -131,7 +155,10 @@ export const query = graphql`
         }
       }
     }
-    allAuthors: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/src/markdown/authors//" } }, limit: 5) {
+    allAuthors: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/src/markdown/authors//" } }
+      limit: 5
+    ) {
       nodes {
         frontmatter {
           slug

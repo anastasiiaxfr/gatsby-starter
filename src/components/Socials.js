@@ -7,12 +7,13 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { IoShareSocial } from "react-icons/io5";
 import { FaLinkedinIn } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
+import { FaDiscord } from "react-icons/fa";
 
 const socPost = [
     { icon: <FaFacebookF />, url: "/", label: "Facenook" },
     { icon: <FaXTwitter />, url: "/", label: "Twitter" },
+    { icon: <FaDiscord />, url: "/", label: "Discrod" },
     { icon: <FaTelegramPlane />, url: "https://t.me/+380630633226", label: "Telegram" },
-    { icon: <IoShareSocial />, url: "/", label: "Share" },
 ];
 
 function Share({ data }) {
@@ -25,6 +26,7 @@ function Share({ data }) {
                     {i.name === 'telegram' && <FaTelegramPlane />}
                     {i.name === 'linkedin' && <FaLinkedinIn />}
                     {i.name === 'email' && <MdAlternateEmail />}
+                    {i.name === 'discord' && <FaDiscord />}
                 </Link>
             ))
 

@@ -10,8 +10,8 @@ exerpt: She is a lawyer, podcaster, speaker, and writer. As an educational conte
 contacts:
   - name: linkedin
     link: 'https://www.linkedin.com/in/webdev-anastasiiaxfr/'
-  - name: telegram
-    link: 'https://t.me/+7109010242'
+  - name: discord
+    link: '/'
   - name: email
     link: 'mailto:michelle.knight@example.com'
 ---

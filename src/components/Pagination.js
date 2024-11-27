@@ -10,10 +10,16 @@ function Pagination({ numPages, currentPage, data, part }) {
       ? null
       : currentPage === 2
       ? `/${part}/${data?.toLowerCase().replace(/\s+/g, "-")}/`
-      : `/${part}/${data?.toLowerCase().replace(/\s+/g, "-")}/${currentPage - 1}`;
+      : `/${part}/${data?.toLowerCase().replace(/\s+/g, "-")}/${
+          currentPage - 1
+        }`;
 
   const nextPage =
-    currentPage === numPages ? null : `/${part}/${data?.toLowerCase().replace(/\s+/g, "-")}/${currentPage + 1}`;
+    currentPage === numPages
+      ? null
+      : `/${part}/${data?.toLowerCase().replace(/\s+/g, "-")}/${
+          currentPage + 1
+        }`;
 
   // Calculate the range of page numbers to show
   const pageNumbers = [];
@@ -39,15 +45,27 @@ function Pagination({ numPages, currentPage, data, part }) {
         </Link>
       )}
 
-      {pageNumbers.map((pageNum) => (
-        <Link
-          to={`/${part}/${data.toLowerCase().replace(/\s+/g, "-")}/${pageNum === 1 ? "" : pageNum}`}
-          key={pageNum}
-          className={`page-number ${pageNum === currentPage ? "active" : ""}`}
-        >
-          {pageNum}
-        </Link>
-      ))}
+      {pageNumbers.map((pageNum) =>
+        data ? (
+          <Link
+            to={`/${part}/${data.toLowerCase().replace(/\s+/g, "-")}/${
+              pageNum === 1 ? "" : pageNum
+            }`}
+            key={pageNum}
+            className={`page-number ${pageNum === currentPage ? "active" : ""}`}
+          >
+            {pageNum}
+          </Link>
+        ) : (
+          <Link
+            to={`/${part}/${pageNum === 1 ? "" : pageNum}`}
+            key={pageNum}
+            className={`page-number ${pageNum === currentPage ? "active" : ""}`}
+          >
+            {pageNum}
+          </Link>
+        )
+      )}
 
       {nextPage && (
         <Link to={nextPage} className="next-page">
