@@ -6,6 +6,7 @@ import { SEO } from "../components/Seo";
 import Sidebar from "../components/Sidebar";
 import Share from "../components/Share";
 import { FaRegCalendarAlt, FaRegBookmark, FaRegHeart } from "react-icons/fa";
+import { Helmet } from "react-helmet";  
 
 function SingleNews({ data }) {
   const { markdownRemark, latestNews, allAuthors, allCategories, site } = data;
@@ -13,9 +14,51 @@ function SingleNews({ data }) {
     markdownRemark.frontmatter;
   const img = getImage(thumb);
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": site.siteMetadata.siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "News",
+        "item": `${site.siteMetadata.siteUrl}/news`,
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": title,
+        "item": `${site.siteMetadata.siteUrl}/news/${slug}`,
+      },
+    ],
+  };
+
   return (
     <Layout categories={allCategories.distinct}>
       <div className="container">
+        <Helmet>
+          <script type="application/ld+json">
+            {JSON.stringify(breadcrumbSchema)}
+          </script>
+        </Helmet>
+
+        <ul className="breadcrumbs">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/news">News</Link>
+          </li>
+          <li className="active">
+            {title.length > 50 ? `${title.slice(0, 50)}...` : title}
+          </li>
+        </ul>
         <article className="page-single">
           <section className="post">
             <GatsbyImage image={img} alt={title} className="post-poster" />
@@ -89,7 +132,6 @@ function SingleNews({ data }) {
 
 export default SingleNews;
 
-// Use the correct query data in the Head section
 export const Head = ({ data }) => {
   const { markdownRemark } = data;
   const { title, thumb, exerpt, slug } = markdownRemark.frontmatter;
@@ -104,7 +146,6 @@ export const Head = ({ data }) => {
   );
 };
 
-// GraphQL query to fetch the current post and latest posts
 export const query = graphql`
   query ($slug: String) {
     site {

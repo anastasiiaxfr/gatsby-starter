@@ -194,4 +194,33 @@
       }
     }
   }
+
+  .breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap1;
+    margin-bottom: $gap3;
+    padding: 0;
+    
+    li {
+      display: flex;
+      align-items: center;
+      gap: $gap1;
+      list-style-type: none;
+      display: inline-flex;
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 12px;
+      opacity: 0.5;
+
+      &:not(:last-child):after{
+        content: '/';
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
 }
